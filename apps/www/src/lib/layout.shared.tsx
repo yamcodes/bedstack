@@ -23,11 +23,6 @@ export function baseOptions(): BaseLayoutProps {
         external: true,
       },
       {
-        text: 'Discord',
-        url: 'https://discord.gg/8UcP9QB5AV',
-        external: true,
-      },
-      {
         text: 'GitHub',
         url: 'https://github.com/yamcodes/bedstack',
         external: true,

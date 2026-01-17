@@ -119,3 +119,32 @@
     @apply font-medium;
   }
 }
+
+@keyframes zzz {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20px, -40px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-zzz-1 {
+  animation: zzz 3s infinite;
+}
+
+.animate-zzz-2 {
+  animation: zzz 3s infinite 1s;
+}
+
+.animate-zzz-3 {
+  animation: zzz 3s infinite 2s;
+}

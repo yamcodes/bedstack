@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Github, BookOpen, Rocket } from 'lucide-react';
 
 export default function HomePage() {
@@ -21,6 +22,27 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-8">
+        <div className="relative group">
+          <Image
+            src="/logo-mini.png"
+            alt="Bedstack Logo"
+            width={100}
+            height={100}
+            className="drop-shadow-xl transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute -top-6 -right-4 pointer-events-none select-none">
+            <span className="animate-zzz-1 text-yellow-400 font-black text-2xl absolute opacity-0">
+              Z
+            </span>
+            <span className="animate-zzz-2 text-yellow-400 font-black text-3xl absolute opacity-0">
+              Z
+            </span>
+            <span className="animate-zzz-3 text-yellow-400 font-black text-4xl absolute opacity-0">
+              Z
+            </span>
+          </div>
+        </div>
+
         <Link
           href="/docs/what-is-bedstack"
           className="inline-flex overflow-hidden w-fit items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-sm hover:bg-accent transition-colors"
