@@ -31,7 +31,7 @@ const Hero = () => {
               href="/docs/what-is-bedstack"
               className="inline-flex overflow-hidden w-fit items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-sm hover:bg-accent transition-colors transition duration-150"
             >
-              <span className="rounded-full bg-primary text-primary-foreground px-2 font-semibold text-[10px] uppercase tracking-wider">
+              <span className="rounded-full bg-accent text-primary px-2 text-sm ml-1">
                 New
               </span>
               <span className="truncate">
@@ -115,24 +115,24 @@ const Hero = () => {
           <div className="hidden lg:block w-px border-l border-solid border-border select-none" />
 
           {/* Right Column: Bed Image (Desktop) / Below Text (Mobile) */}
-          <div className="flex-1 lg:max-w-[45%] flex items-center justify-center lg:justify-end order-first lg:order-last py-24 px-4 lg:pl-12">
-            <div className="relative w-full max-w-lg lg:max-w-none group">
+          <div className="flex-1 lg:max-w-[45%] flex items-center justify-center order-first lg:order-last py-24 px-4 lg:pl-12">
+            <div className="relative group flex items-center justify-center">
               <Image
                 src="/logo-mini.png"
                 alt="Bed illustration"
-                width={400}
-                height={400}
+                width={280}
+                height={280}
                 className="drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                 priority
               />
-              <div className="absolute -top-12 -right-8 pointer-events-none select-none">
-                <span className="animate-zzz-1 text-yellow-400 font-black text-4xl absolute opacity-0">
+              <div className="absolute top-0 right-0 pointer-events-none select-none">
+                <span className="animate-zzz-1 text-blue-400 font-black text-3xl absolute opacity-0" style={{ top: '-10px', right: '20px' }}>
                   Z
                 </span>
-                <span className="animate-zzz-2 text-yellow-400 font-black text-5xl absolute opacity-0">
+                <span className="animate-zzz-2 text-blue-400 font-black text-4xl absolute opacity-0" style={{ top: '-45px', right: '55px' }}>
                   Z
                 </span>
-                <span className="animate-zzz-3 text-yellow-400 font-black text-6xl absolute opacity-0">
+                <span className="animate-zzz-3 text-blue-400 font-black text-5xl absolute opacity-0" style={{ top: '-95px', right: '100px' }}>
                   Z
                 </span>
               </div>

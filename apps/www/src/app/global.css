@@ -170,10 +170,7 @@
     transform: translate(0, 0) scale(0.5);
     opacity: 0;
   }
-  20% {
-    opacity: 1;
-  }
-  80% {
+  10% {
     opacity: 1;
   }
   100% {
