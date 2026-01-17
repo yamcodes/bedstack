@@ -28,6 +28,7 @@
   --fd-primary: var(--primary);
   --fd-primary-foreground: var(--primary-foreground);
   --fd-nav-height: 80px !important;
+  --fd-docs-row-1: 80px;
 }
 
 .dark {
@@ -107,7 +108,8 @@
 }
 
 #nd-nav nav,
-#nd-subnav nav {
+#nd-subnav nav,
+#nd-subnav > div {
   height: var(--fd-nav-height) !important;
   display: flex !important;
   align-items: center !important;
@@ -126,7 +128,9 @@
 }
 
 #nd-sidebar {
-  @apply border-r border-dotted;
+  @apply border-r border-dotted border-border;
+  top: var(--fd-nav-height) !important;
+  height: calc(100vh - var(--fd-nav-height)) !important;
 
   a {
     @apply py-1.5;
