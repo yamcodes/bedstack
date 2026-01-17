@@ -109,6 +109,11 @@
   z-index: 50;
 }
 
+#nd-nav > div,
+#nd-subnav > div {
+  @apply backdrop-blur-lg bg-fd-background/80;
+}
+
 #nd-nav nav {
   height: var(--fd-nav-height) !important;
   display: flex !important;
@@ -136,7 +141,7 @@
 }
 
 #nd-sidebar {
-  @apply border-r border-dotted border-border;
+  @apply border-r border-solid border-border;
 
   a {
     @apply py-1.5;
@@ -147,10 +152,7 @@
   }
 }
 
-#nd-subnav,
-#nd-nav {
-  @apply border-b border-dotted border-border;
-}
+
 
 @keyframes zzz {
   0% {
