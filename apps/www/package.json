@@ -12,7 +12,7 @@
     "typecheck": "tsc --noEmit",
     "fix": "bun run --cwd ../.. fix",
     "check": "bun run --cwd ../.. check",
-    "check:errors": "bun run --cwd ../.. check:errors",
+    "check:errors": "bun run --cwd ../.. check:errors"
   },
   "dependencies": {
     "fumadocs-core": "16.4.7",
