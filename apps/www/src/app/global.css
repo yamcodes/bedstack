@@ -120,10 +120,6 @@
   }
 }
 
-[data-theme-toggle] svg {
-  @apply fill-none;
-}
-
 @keyframes zzz {
   0% {
     transform: translate(0, 0) scale(0.5);

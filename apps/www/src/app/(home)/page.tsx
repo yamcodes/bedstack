@@ -108,13 +108,9 @@ const Hero = () => {
 const Footer = () => {
   return (
     <footer className="py-12 text-center border-t border-dotted mt-auto">
-      <div className="container mx-auto px-4 flex flex-col gap-2">
-        <p className="text-muted-foreground text-sm font-medium">
-          Released under the MIT License
-        </p>
-        <p className="text-muted-foreground text-sm font-medium">
-          Copyright © 2025-present Yam Borodetsky
-        </p>
+      <div className="container mx-auto px-4 flex flex-col gap-2 text-sm text-muted-foreground">
+        <p>Released under the MIT License</p>
+        <p>Copyright © 2025-present Yam Borodetsky</p>
       </div>
     </footer>
   );
