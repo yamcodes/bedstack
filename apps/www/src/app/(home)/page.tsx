@@ -4,6 +4,7 @@ import { SiGithub as GitHub } from '@icons-pack/react-simple-icons';
 import { ArrowUpRight, BookOpen, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
   return (
@@ -85,29 +86,18 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Link
-                href="/docs/getting-started"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground font-semibold rounded-full hover:opacity-90 transition-all shadow-md shadow-primary/20"
-              >
+              <Button href="/docs/getting-started" variant="primary">
                 <Rocket size={18} className="fill-current" />
                 Quickstart
-              </Link>
-              <Link
-                href="/docs/what-is-bedstack"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-background text-foreground font-semibold rounded-full hover:bg-accent transition-all border border-border shadow-xs"
-              >
+              </Button>
+              <Button href="/docs/what-is-bedstack">
                 <BookOpen size={18} />
                 Documentation
-              </Link>
-              <a
-                href="https://github.com/yamcodes/bedstack"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 bg-background text-foreground font-semibold rounded-full hover:bg-accent transition-all border border-border shadow-xs"
-              >
+              </Button>
+              <Button href="https://github.com/yamcodes/bedstack" external>
                 <GitHub size={18} />
                 GitHub
-              </a>
+              </Button>
             </div>
           </div>
 
