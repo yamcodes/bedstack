@@ -25,6 +25,7 @@ export function baseOptions(): BaseLayoutProps {
         </div>
       ),
     },
+    githubUrl: 'https://github.com/yamcodes/bedstack',
     themeSwitch: {
       mode: 'light-dark-system',
     },
