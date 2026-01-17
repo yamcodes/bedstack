@@ -28,8 +28,7 @@
   --fd-primary: var(--primary);
   --fd-primary-foreground: var(--primary-foreground);
   --fd-nav-height: 80px !important;
-  --fd-docs-header-height: 80px;
-  --fd-docs-row-1: 80px;
+  --fd-header-height: 80px !important;
 }
 
 .dark {
@@ -87,6 +86,7 @@
   body {
     @apply bg-background text-foreground flex flex-col min-h-screen font-sans;
     overscroll-behavior: none;
+    overflow-x: hidden;
   }
 
   &::selection {
@@ -103,6 +103,13 @@
   @apply container mx-auto p-0 border-x border-dotted max-w-[1400px] md:[--fd-sidebar-width:286px] xl:[--fd-toc-width:286px];
 }
 
+/* Override Fumadocs :has() selector that sets header height to 64px */
+#nd-notebook-layout,
+#nd-home-layout,
+#nd-docs-layout {
+  --fd-header-height: 80px !important;
+}
+
 #nd-nav,
 #nd-subnav {
   height: var(--fd-nav-height) !important;
@@ -112,6 +119,7 @@
 #nd-nav > div,
 #nd-subnav > div {
   @apply backdrop-blur-lg bg-fd-background/80;
+  background-color: hsl(var(--background) / 0.8) !important;
 }
 
 #nd-nav nav {
@@ -119,6 +127,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
+  background: transparent !important;
   @apply px-8 w-full max-w-(--fd-layout-width) mx-auto;
 }
 
@@ -128,6 +137,10 @@
   display: flex !important;
   align-items: center !important;
   @apply px-8 w-full max-w-(--fd-layout-width) mx-auto gap-4;
+}
+
+#nd-subnav nav {
+  background: transparent !important;
 }
 
 #nd-nav a,
