@@ -1,6 +1,6 @@
 # Getting Started
 
-Getting started with this RealWorld project is as easy as installing a few prerequisites, running a few commands, and opening your favorite text editor. [Contributions](https://github.com/yamcodes/bedstack/blob/main/CONTRIBUTING.md) are welcome. If you have any questions, please reach out on [Discord](https://discord.gg/8UcP9QB5AV) or [GitHub Discussions](
+Getting started with this RealWorld project is as easy as installing a few prerequisites, running a few commands, and opening your favorite text editor. [Contributions](https://github.com/yamcodes/bedstack/blob/main/CONTRIBUTING.md) are welcome. If you have any questions, please reach out on [GitHub Discussions](
   https://github.com/yamcodes/bedstack/discussions
 )!
 
@@ -46,4 +46,4 @@ $ bun dev
 * To contribute, see the [contributing guide](https://github.com/yamcodes/bedstack/blob/main/CONTRIBUTING.md).
 * For a place to start, see the [good first issues](https://github.com/yamcodes/bedstack/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
 * For support, visit the [support page](https://github.com/yamcodes/bedstack/blob/main/SUPPORT.md).
-* To ask questions or chat, join the [Discord server](https://discord.gg/8UcP9QB5AV) or [GitHub Discussions](https://github.com/yamcodes/bedstack/discussions).
+* To ask questions or chat, join the [GitHub Discussions](https://github.com/yamcodes/bedstack/discussions).

@@ -54,10 +54,6 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/yamcodes/bedstack',
       },
-      {
-        icon: 'discord',
-        link: 'https://discord.gg/8UcP9QB5AV',
-      },
     ],
     search: {
       provider: 'local',
