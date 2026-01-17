@@ -28,5 +28,8 @@ export function baseOptions(): BaseLayoutProps {
         external: true,
       },
     ],
+    themeSwitch: {
+      mode: 'light-dark-system',
+    },
   };
 }
