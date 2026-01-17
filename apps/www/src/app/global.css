@@ -114,6 +114,7 @@
 [data-search-full],
 [data-search] {
   border-radius: 0.125rem !important;
+  margin-right: 1.5rem !important;
 }
 
 kbd {
