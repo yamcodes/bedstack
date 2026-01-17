@@ -90,6 +90,10 @@
   &::selection {
     @apply bg-primary text-primary-foreground;
   }
+  
+	button:not(:disabled) {
+		@apply cursor-pointer;
+	}
 }
 
 #nd-home-layout,
@@ -147,4 +151,8 @@
 
 .animate-zzz-3 {
   animation: zzz 3s infinite 2s;
+}
+
+[data-theme-toggle] svg {
+  @apply fill-none;
 }
