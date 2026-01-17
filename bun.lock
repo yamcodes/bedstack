@@ -44,6 +44,7 @@
       "name": "www",
       "version": "0.0.0",
       "dependencies": {
+        "clsx": "^2.1.1",
         "fumadocs-core": "16.4.7",
         "fumadocs-mdx": "14.2.5",
         "fumadocs-ui": "16.4.7",

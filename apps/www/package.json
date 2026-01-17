@@ -15,6 +15,7 @@
     "check:errors": "bun run --cwd ../.. check:errors"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "fumadocs-core": "16.4.7",
     "fumadocs-mdx": "14.2.5",
     "fumadocs-ui": "16.4.7",
