@@ -111,6 +111,8 @@
 }
 
 /* Override search bar and keyboard shortcuts to use minimal radius */
+button[data-search-full],
+button[data-search],
 [data-search-full],
 [data-search] {
   border-radius: 0.125rem !important;
