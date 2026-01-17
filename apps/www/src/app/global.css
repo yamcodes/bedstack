@@ -100,7 +100,7 @@
 
 #nd-home-layout,
 #nd-notebook-layout {
-  @apply container mx-auto p-0 border-x border-dotted max-w-[1400px] md:[--fd-sidebar-width:286px] xl:[--fd-toc-width:286px];
+  @apply container mx-auto p-0 border-x border-solid max-w-[1400px] md:[--fd-sidebar-width:286px] xl:[--fd-toc-width:286px];
 }
 
 /* Override Fumadocs :has() selector that sets header height to 64px */
