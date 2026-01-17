@@ -19,14 +19,9 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
       {
-        url: '/icon-light.svg',
-        type: 'image/svg+xml',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark.svg',
-        type: 'image/svg+xml',
-        media: '(prefers-color-scheme: dark)',
+        url: '/logo-mini.png',
+        type: 'image/png',
+        sizes: 'any',
       },
     ],
   },
