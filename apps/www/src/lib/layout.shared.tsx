@@ -4,6 +4,7 @@ import Image from 'next/image';
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
+      transparentMode: 'top',
       title: (
         <div className="flex items-center gap-2">
           <Image

@@ -16,17 +16,17 @@ export default function HomePage() {
 
 const Hero = () => {
   return (
-    <div className="flex flex-1 flex-col justify-center items-center px-4 py-24 relative overflow-hidden">
+    <div className="flex flex-1 flex-col relative overflow-hidden">
       {/* Background decoration - subtle gradient instead of loud blobs */}
       <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-125 bg-linear-to-b from-primary/30 to-transparent" />
       </div>
 
       {/* Desktop: Two-column layout, Mobile: Stacked */}
-      <div className="relative z-10 container mx-auto max-w-7xl">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-8">
+      <div className="relative z-10 container mx-auto max-w-7xl flex flex-1">
+        <div className="flex flex-col lg:flex-row w-full items-stretch">
           {/* Left Column: Text Content */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-8 flex-1 lg:max-w-[55%]">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-8 flex-1 lg:max-w-[55%] py-24 px-4 lg:pr-12 justify-center">
             <div className="relative group">
               <Image
                 src="/logo-mini.png"
@@ -132,11 +132,11 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Desktop Separator Line */}
-          <div className="hidden lg:block w-px self-stretch border-l border-dotted border-border mx-4" />
+          {/* Desktop Separator Line - Spans full height of the row */}
+          <div className="hidden lg:block w-px border-l border-dotted border-border select-none" />
 
           {/* Right Column: Bed Image (Desktop) / Below Text (Mobile) */}
-          <div className="flex-1 lg:max-w-[45%] flex items-center justify-center lg:justify-end order-first lg:order-last">
+          <div className="flex-1 lg:max-w-[45%] flex items-center justify-center lg:justify-end order-first lg:order-last py-24 px-4 lg:pl-12">
             <div className="relative w-full max-w-lg lg:max-w-none aspect-square lg:aspect-auto">
               <Image
                 src="/logo-mini.png"

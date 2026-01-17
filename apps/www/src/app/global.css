@@ -27,7 +27,7 @@
   --foreground: oklch(0.145 0 0);
   --fd-primary: var(--primary);
   --fd-primary-foreground: var(--primary-foreground);
-  --fd-nav-height: 12rem !important;
+  --fd-nav-height: 80px !important;
 }
 
 .dark {
@@ -103,13 +103,26 @@
 
 #nd-nav,
 #nd-subnav {
-  > div {
-    @apply border-dotted text-[15.5px];
+  height: var(--fd-nav-height) !important;
+}
 
-    [data-active="true"] {
-      @apply font-semibold text-primary;
-    }
-  }
+#nd-nav nav,
+#nd-subnav nav {
+  height: var(--fd-nav-height) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  @apply px-8 w-full max-w-(--fd-layout-width) mx-auto;
+}
+
+#nd-nav a,
+#nd-subnav a {
+  @apply text-[15.5px] px-4 whitespace-nowrap;
+}
+
+#nd-nav [data-active="true"],
+#nd-subnav [data-active="true"] {
+  @apply font-semibold text-primary;
 }
 
 #nd-sidebar {
