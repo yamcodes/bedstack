@@ -1,7 +1,7 @@
 'use client';
 
 import { SiGithub as GitHub } from '@icons-pack/react-simple-icons';
-import { ArrowUpRight, BookOpen, Rocket } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, BookOpen, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -29,16 +29,16 @@ const Hero = () => {
           {/* Left Column: Text Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-8 flex-1 lg:max-w-[55%] py-24 px-4 lg:pr-12 justify-center">
             <Link
-              href="/docs/what-is-bedstack"
+              href="/docs"
               className="inline-flex overflow-hidden w-fit items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-sm hover:bg-accent transition-colors transition duration-150"
             >
               <span className="rounded-full bg-accent text-primary px-2 text-sm ml-1">
                 New
               </span>
               <span className="truncate">
-                Bedstack is now powered by Fumadocs
+                Check out our new docs - now powered by Fumadocs!
               </span>
-              <ArrowUpRight className="size-4 opacity-50" />
+              <ArrowRight className="size-4 opacity-50" />
             </Link>
 
             <h1 className="max-w-3xl text-balance font-medium text-5xl leading-tight tracking-tighter! sm:text-6xl md:text-7xl">
@@ -83,17 +83,13 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Button href="/docs/getting-started" variant="primary">
-                <Rocket size={18} className="fill-current" />
-                Quickstart
-              </Button>
-              <Button href="/docs/what-is-bedstack">
+              <Button href="/docs" variant='primary'>
                 <BookOpen size={18} />
-                Documentation
+                Read the docs
               </Button>
               <Button href="https://github.com/yamcodes/bedstack" external>
                 <GitHub size={18} />
-                GitHub
+                View on GitHub
               </Button>
             </div>
           </div>

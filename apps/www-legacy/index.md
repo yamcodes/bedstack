@@ -14,7 +14,7 @@ hero:
       link: /what-is-bedstack
     - theme: alt
       text: Quickstart
-      link: /getting-started
+      link: /realworld
     - theme: alt
       text: View on GitHub ↗
       link: https://github.com/yamcodes/bedstack
