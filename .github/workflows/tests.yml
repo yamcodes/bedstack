@@ -114,5 +114,5 @@ jobs:
           bun-version: ${{ matrix.bun }}
       - name: Install dependencies
         run: bun install
-      - name: Run Type Safety Tests
+      - name: Run typesafety tests
         run: bun run typecheck

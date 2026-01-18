@@ -82,7 +82,7 @@ export function formatValidationError(error: ValidationError) {
     }
   }
 
-  // Remove duplicates in each path’s messages
+  // Remove duplicates in each path's messages
   for (const path in result) {
     result[path] = [...new Set(result[path])];
   }

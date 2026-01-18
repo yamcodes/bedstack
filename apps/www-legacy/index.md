@@ -28,7 +28,7 @@ features:
       src: /bun-press-kit/logo-centered.svg
 
   - title: ElysiaJS
-    details: TypeScript framework supercharged by Bun with End-to-End Type Safety, unified type system and outstanding developer experience.
+    details: TypeScript framework supercharged by Bun with End-to-End typesafety, unified type system and outstanding developer experience.
     link: https://elysiajs.com/
     icon:
       src: /elysiajs-logo.png
