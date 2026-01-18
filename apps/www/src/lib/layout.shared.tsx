@@ -1,7 +1,10 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import Image from 'next/image';
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(options?: {
+  titleSuffix?: string;
+  titleHref?: string;
+}): BaseLayoutProps {
   return {
     nav: {
       transparentMode: 'top',
@@ -21,9 +24,17 @@ export function baseOptions(): BaseLayoutProps {
             height={24}
             className="md:hidden"
           />
-          <span className="font-bold">Bedstack</span>
+          <span className="font-bold">
+            Bedstack
+            {options?.titleSuffix && (
+              <span className="font-normal text-muted-foreground ml-1">
+                {options.titleSuffix}
+              </span>
+            )}
+          </span>
         </div>
       ),
+      url: options?.titleHref ?? '/',
     },
     githubUrl: 'https://github.com/yamcodes/bedstack',
     themeSwitch: {

@@ -4,7 +4,10 @@ import { baseOptions } from '@/lib/layout.shared';
 import { source } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const options = baseOptions();
+  const options = baseOptions({
+    titleSuffix: 'Docs',
+    titleHref: '/docs',
+  });
 
   return (
     <DocsLayout
