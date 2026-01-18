@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "bun",
+      "script": "turbo run dev --filter=www",
+      "problemMatcher": ["$tsc-watch"],
+      "label": "bun: www",
+      "detail": "bun run turbo run dev --filter=www - package.json",
+      "isBackground": true
+    },
+    {
+      "type": "bun",
+      "script": "bin/fix.js",
+      "problemMatcher": ["$tsc"],
+      "label": "bun: fix",
+      "detail": "bun run bin/fix.js - package.json"
+    },
+    {
+      "type": "bun",
+      "script": "turbo run typecheck",
+      "problemMatcher": ["$tsc"],
+      "label": "bun: typecheck",
+      "detail": "bun run turbo run typecheck - package.json"
+    }
+  ]
+}

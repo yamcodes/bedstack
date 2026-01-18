@@ -1,19 +1,41 @@
 {
   "name": "www",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
+    "postinstall": "fumadocs-mdx",
     "clean": "rimraf node_modules",
-    "typecheck": "tsc --noEmit"
+    "typegen": "next typegen",
+    "typecheck": "tsc --noEmit",
+    "fix": "bun run --cwd ../.. fix",
+    "check": "bun run --cwd ../.. check",
+    "check:errors": "bun run --cwd ../.. check:errors"
   },
   "dependencies": {
-    "vitepress": "^1.6.4"
+    "@icons-pack/react-simple-icons": "^13.8.0",
+    "clsx": "^2.1.1",
+    "fumadocs-core": "16.4.7",
+    "fumadocs-mdx": "14.2.5",
+    "fumadocs-ui": "16.4.7",
+    "lucide-react": "^0.562.0",
+    "next": "16.1.1",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^25.0.9",
-    "typescript": "catalog:"
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }

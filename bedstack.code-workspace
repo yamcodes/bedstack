@@ -14,6 +14,14 @@
       "name": "~"
     },
     {
+      "path": "apps/www/content/docs",
+      "name": "docs"
+    },
+    {
+      "path": "apps/www/public",
+      "name": "public"
+    },
+    {
       "path": "apps",
       "name": "apps"
     },

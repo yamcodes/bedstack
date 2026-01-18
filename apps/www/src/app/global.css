@@ -1,0 +1,338 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/shadcn.css";
+@import "fumadocs-ui/css/preset.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --radius: 0.125rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --fd-primary: var(--primary);
+  --fd-primary-foreground: var(--primary-foreground);
+  --fd-nav-height: 80px !important;
+  --fd-header-height: 80px !important;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+
+  --icon-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3C/svg%3E");
+  --icon-external-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d1d5db' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3C/svg%3E");
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground flex flex-col min-h-screen font-sans;
+    overscroll-behavior: none;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  button:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+#nd-home-layout,
+#nd-notebook-layout {
+  @apply container mx-auto p-0 border-x border-solid max-w-[1400px] md:[--fd-sidebar-width:286px] xl:[--fd-toc-width:286px];
+}
+
+/* Override Fumadocs :has() selector that sets header height to 64px */
+#nd-notebook-layout,
+#nd-home-layout,
+#nd-docs-layout {
+  --fd-header-height: 80px !important;
+}
+
+/* Override search bar and keyboard shortcuts to use minimal radius */
+button[data-search-full],
+button[data-search],
+[data-search-full],
+[data-search] {
+  margin-right: 1rem !important;
+}
+
+button[data-search-full],
+button[data-search],
+[data-search-full],
+[data-search],
+[data-card],
+.prose .rounded-xl,
+[data-radix-popper-content-wrapper] [role="dialog"],
+kbd {
+  border-radius: 0.125rem !important;
+}
+
+#nd-nav,
+#nd-subnav {
+  height: var(--fd-nav-height) !important;
+  z-index: 50;
+}
+
+#nd-nav > div,
+#nd-subnav > div {
+  @apply backdrop-blur-lg bg-fd-background/80;
+}
+
+#nd-nav nav {
+  height: var(--fd-nav-height) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: transparent !important;
+  @apply px-4 w-full max-w-(--fd-layout-width) mx-auto;
+}
+
+#nd-subnav nav,
+#nd-subnav > div {
+  height: var(--fd-nav-height) !important;
+  display: flex !important;
+  align-items: center !important;
+  @apply px-4 w-full max-w-(--fd-layout-width) mx-auto gap-4;
+}
+
+#nd-subnav nav {
+  background: transparent !important;
+}
+
+#nd-nav a,
+#nd-subnav a {
+  @apply text-[15.5px] px-4 whitespace-nowrap;
+}
+
+#nd-nav [data-active="true"],
+#nd-subnav [data-active="true"] {
+  @apply font-semibold text-primary;
+}
+
+#nd-sidebar {
+  @apply border-r border-solid border-border;
+
+  a {
+    @apply py-1.5;
+  }
+
+  p {
+    @apply font-medium;
+  }
+}
+
+@keyframes zzz {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(20px, -40px) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-zzz-1 {
+  animation: zzz 3s infinite;
+}
+
+.animate-zzz-2 {
+  animation: zzz 3s infinite 1s;
+}
+
+.animate-zzz-3 {
+  animation: zzz 3s infinite 2s;
+}
+
+[data-theme-toggle] svg {
+  @apply fill-none;
+}
+
+/* Link underlines in documentation */
+article
+a:not(:has(img)):not(.fd-card):not([data-card]):not([class*="fd-"]):not(
+  [data-no-underline]
+),
+[data-external-link]:not(:has(img)):not(.fd-card):not([data-card]):not(
+    [class*="fd-"]
+  ):not([data-no-underline]) {
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 1px;
+  transition: border-bottom-width 0.1s ease;
+}
+
+article
+  a:not(:has(img)):not(.fd-card):not([data-card]):not([class*="fd-"]):not(
+    [data-no-underline]
+  ):hover,
+[data-external-link]:not(:has(img)):not(.fd-card):not([data-card]):not(
+    [class*="fd-"]
+  ):not([data-no-underline]):hover {
+  border-bottom-width: 2.5px;
+}
+
+/* External links in documentation */
+article
+a[rel*="noopener"][target="_blank"]:not(.fd-card):not([data-card]):not(
+  [data-no-arrow]
+):not(:has(img)),
+[data-external-link]:not(.fd-card):not([data-card]):not([data-no-arrow]):not(
+    :has(img)
+  ) {
+  padding-right: 1.1em;
+  background-image: var(--icon-external);
+  background-repeat: no-repeat;
+  background-size: 0.9em;
+  background-position: center right;
+}
+
+.dark
+  article
+  a[rel*="noopener"][target="_blank"]:not(.fd-card):not([data-card]):not(
+    [data-no-arrow]
+  ):not(:has(img)),
+.dark
+  [data-external-link]:not(.fd-card):not([data-card]):not([data-no-arrow]):not(
+    :has(img)
+  ) {
+  background-image: var(--icon-external-dark);
+}
+
+/* Sidebar & Nav: Automagic icons next to text for flex containers */
+[data-radix-scroll-area-viewport]
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  ),
+#nd-nav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  ),
+#nd-subnav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  ) {
+  background-image: none !important;
+  padding-right: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0 !important;
+}
+
+/* Sidebar specifically needs full flex for better link hit-areas */
+[data-radix-scroll-area-viewport]
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  ) {
+  display: flex;
+}
+
+[data-radix-scroll-area-viewport]
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after,
+#nd-nav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after,
+#nd-subnav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after {
+  content: "";
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.1em;
+  background-image: var(--icon-external);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.dark
+  [data-radix-scroll-area-viewport]
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after,
+.dark
+  #nd-nav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after,
+.dark
+  #nd-subnav
+  a[target="_blank"]:not([data-no-arrow]):not(:has(img)):not(
+    :has(> svg:only-child)
+  )::after {
+  background-image: var(--icon-external-dark);
+}
