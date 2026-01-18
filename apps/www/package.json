@@ -9,6 +9,7 @@
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx",
     "clean": "rimraf node_modules",
+    "typegen": "next typegen",
     "typecheck": "tsc --noEmit",
     "fix": "bun run --cwd ../.. fix",
     "check": "bun run --cwd ../.. check",

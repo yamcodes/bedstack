@@ -19,8 +19,12 @@
       "outputs": ["dist/**", ".vitepress/dist/**"]
     },
     "typecheck": {
-      "dependsOn": ["^build", "transit"],
+      "dependsOn": ["^build", "transit", "typegen"],
       "inputs": ["**/*.ts", "**/*.tsx", "**/*.vue"]
+    },
+    "typegen": {
+      "cache": true,
+      "outputs": [".next/types/**/*.ts", ".next/dev/types/**/*.ts"]
     },
     "dev": {
       "cache": false,
