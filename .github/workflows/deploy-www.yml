@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "apps/www/**"
+      - "apps/www-legacy/**"
       - "package.json"
       - "bun.lock"
 
@@ -51,11 +51,11 @@ jobs:
       - name: Build with VitePress
         run: |
           bun run docs:build
-          touch apps/www/.vitepress/dist/.nojekyll
+          touch apps/www-legacy/.vitepress/dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: apps/www/.vitepress/dist
+          path: apps/www-legacy/.vitepress/dist
 
   deploy:
     name: Deploy Docs
