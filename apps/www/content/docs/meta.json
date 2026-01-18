@@ -1,4 +1,10 @@
 {
   "title": "Docs",
-  "pages": ["index", "what-is-bedstack", "getting-started"]
+  "pages": [
+    "---Introduction---",
+    "index",
+    "what-is-bedstack",
+    "---RealWorld example app---",
+    "getting-started"
+  ]
 }
