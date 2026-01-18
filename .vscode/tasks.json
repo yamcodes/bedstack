@@ -15,6 +15,13 @@
       "problemMatcher": ["$tsc"],
       "label": "bun: fix",
       "detail": "bun run bin/fix.js - package.json"
+    },
+    {
+      "type": "bun",
+      "script": "turbo run typecheck",
+      "problemMatcher": ["$tsc"],
+      "label": "bun: typecheck",
+      "detail": "bun run turbo run typecheck - package.json"
     }
   ]
 }

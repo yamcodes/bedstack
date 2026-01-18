@@ -73,10 +73,10 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: var(--radius);
 }
 
 @layer base {
@@ -115,12 +115,16 @@ button[data-search-full],
 button[data-search],
 [data-search-full],
 [data-search] {
-  border-radius: 0.125rem !important;
   margin-right: 1rem !important;
 }
 
+button[data-search-full],
+button[data-search],
+[data-search-full],
+[data-search],
 [data-card],
 .prose .rounded-xl,
+[data-radix-popper-content-wrapper] [role="dialog"],
 kbd {
   border-radius: 0.125rem !important;
 }
