@@ -5,9 +5,9 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/) [![Fumadocs](https://img.shields.io/badge/Fumadocs-000000?logo=markdown&logoColor=white)](https://fumadocs.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-The official documentation site for [Bedstack](https://bedstack.vercel.app)
+The official documentation site for [Bedstack](https://bedstack.js.org)
 
-[bedstack.vercel.app](https://bedstack.vercel.app)
+[bedstack.js.org](https://bedstack.js.org)
 
 </div>
 
@@ -78,7 +78,7 @@ To learn more about the technologies used:
 
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
 - [Fumadocs Documentation](https://fumadocs.dev) - Learn about Fumadocs and MDX
-- [Bedstack Documentation](https://bedstack.vercel.app) - Learn about Bedstack
+- [Bedstack Documentation](https://bedstack.js.org) - Learn about Bedstack
 
 ## Contributing
 

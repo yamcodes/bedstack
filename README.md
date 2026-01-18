@@ -7,12 +7,12 @@
 
 [Bun](https://bun.com/) + [ElysiaJS](https://elysiajs.com/) + [Drizzle](https://orm.drizzle.team/) = the stack you don't want to sleep on
 
-[bedstack.vercel.app](https://bedstack.vercel.app)
+[bedstack.js.org](https://bedstack.js.org)
 
 </div>
 
 > [!TIP]
-> ⚡ **New!** Check out our brand new docs at [bedstack.vercel.app](https://bedstack.vercel.app)!
+> ⚡ **New!** Check out our brand new docs at [bedstack.js.org](https://bedstack.js.org)!
 
 > [!TIP]
 > ⚡ Bedstack (Stripped) supports [Drizzle v1 Beta](https://orm.drizzle.team/roadmap)! Check it out: [`drizzle-v1` branch](https://github.com/yamcodes/bedstack-stripped/tree/drizzle-v1)
@@ -21,7 +21,7 @@
 <br/>
 <br/>
 
-### [Read the docs →](https://bedstack.vercel.app/)
+### [Read the docs →](https://bedstack.js.org/)
 
 <br/>
 <br/>
@@ -32,7 +32,7 @@ This is a monorepo containing the following codebases:
 
 ### [Conduit: Bedstack real world example app](./apps/conduit)
 
-### [bedstack.vercel.app: the Bedstack documentation site](./apps/www)
+### [bedstack.js.org: the Bedstack documentation site](./apps/www)
 
 More to come soon! Stay tuned.
 
