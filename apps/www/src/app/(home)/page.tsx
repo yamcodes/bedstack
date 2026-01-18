@@ -46,28 +46,33 @@ const Hero = () => {
             <p className="max-w-xl text-balance text-muted-foreground md:max-w-2xl md:text-xl lg:text-2xl leading-normal font-light">
               <span className="text-foreground">Bedstack</span> is an
               opinionated, typesafe backend stack built with{' '}
-              <span className="inline-flex items-center gap-1.5 text-foreground">
-                <Image
-                  src="/bun-press-kit/logo-square.png"
-                  alt="Bun"
-                  width={20}
-                  height={20}
-                  className="inline-block"
-                />
-                Bun
-              </span>
-              ,{' '}
-              <span className="inline-flex items-center gap-1.5 text-foreground">
-                <Image
-                  src="/elysiajs-logo.png"
-                  alt="ElysiaJS"
-                  width={20}
-                  height={20}
-                  className="inline-block"
-                />
-                ElysiaJS
-              </span>
-              , and{' '}
+              <span className="whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 text-foreground">
+                  <Image
+                    src="/bun-press-kit/logo-square.png"
+                    alt="Bun"
+                    width={20}
+                    height={20}
+                    className="inline-block"
+                  />
+                  Bun
+                </span>
+                ,
+              </span>{' '}
+              <span className="whitespace-nowrap">
+                <span className="inline-flex items-center gap-1.5 text-foreground">
+                  <Image
+                    src="/elysiajs-logo.png"
+                    alt="ElysiaJS"
+                    width={20}
+                    height={20}
+                    className="inline-block"
+                  />
+                  ElysiaJS
+                </span>
+                ,
+              </span>{' '}
+              and{' '}
               <span className="inline-flex items-center gap-1.5 text-foreground">
                 <Image
                   src="/drizzle-logo.png"
