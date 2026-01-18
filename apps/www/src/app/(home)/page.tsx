@@ -81,10 +81,9 @@ const Hero = () => {
               .
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+            <div className="flex flex-nowrap justify-center lg:justify-start gap-4 pt-4">
               <Button href="/docs" variant="primary">
-                <BookOpen size={18} />
-                Read the docs
+                Get started
               </Button>
               <Button href="https://github.com/yamcodes/bedstack" external>
                 <GitHub size={18} />

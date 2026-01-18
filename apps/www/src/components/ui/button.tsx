@@ -18,7 +18,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center gap-2 px-6 py-2.5 font-semibold rounded transition-all';
+    'inline-flex items-center gap-2 px-6 py-2.5 font-medium rounded transition-all';
 
   const variantStyles = {
     primary:
