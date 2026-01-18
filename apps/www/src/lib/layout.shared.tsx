@@ -24,7 +24,7 @@ export function baseOptions(options?: {
             height={24}
             className="md:hidden"
           />
-          <span className="font-bold">
+          <span className="font-medium text-lg">
             Bedstack
             {options?.titleSuffix && (
               <span className="font-normal text-muted-foreground ml-1">

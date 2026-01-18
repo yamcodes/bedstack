@@ -35,9 +35,7 @@ const Hero = () => {
               <span className="rounded-full bg-accent text-primary px-2 text-sm ml-1">
                 New
               </span>
-              <span className="truncate">
-                Check out our new docs - now powered by Fumadocs!
-              </span>
+              <span className="truncate">Docs powered by Fumadocs</span>
               <ArrowRight className="size-4 opacity-50" />
             </Link>
 
@@ -46,7 +44,8 @@ const Hero = () => {
             </h1>
 
             <p className="max-w-xl text-balance text-muted-foreground md:max-w-2xl md:text-xl lg:text-2xl leading-normal font-light">
-              Bedstack is an opinionated, typesafe backend stack built with{' '}
+              <span className="text-foreground">Bedstack</span> is an
+              opinionated, typesafe backend stack built with{' '}
               <span className="inline-flex items-center gap-1.5 text-foreground">
                 <Image
                   src="/bun-press-kit/logo-square.png"
