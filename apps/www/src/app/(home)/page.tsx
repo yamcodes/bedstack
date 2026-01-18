@@ -102,10 +102,11 @@ const Hero = () => {
               <Image
                 src="/logo-mini.png"
                 alt="Bed illustration"
-                width={280}
+                width={301}
                 height={280}
-                className="drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                className="transition-transform duration-500 group-hover:scale-105"
                 priority
+                unoptimized
               />
               <div className="absolute top-0 right-0 pointer-events-none select-none">
                 <span

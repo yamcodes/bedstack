@@ -13,16 +13,18 @@ export function baseOptions(options?: {
           <Image
             src="/logo-mini.png"
             alt="Bedstack"
-            width={28}
+            width={30}
             height={28}
             className="hidden md:block"
+            unoptimized
           />
           <Image
             src="/logo-mini.png"
             alt="Bedstack"
-            width={24}
+            width={26}
             height={24}
             className="md:hidden"
+            unoptimized
           />
           <span className="font-medium text-lg">
             Bedstack
