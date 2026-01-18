@@ -83,7 +83,7 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Button href="/docs" variant='primary'>
+              <Button href="/docs" variant="primary">
                 <BookOpen size={18} />
                 Read the docs
               </Button>
@@ -109,13 +109,22 @@ const Hero = () => {
                 priority
               />
               <div className="absolute top-0 right-0 pointer-events-none select-none">
-                <span className="animate-zzz-1 text-blue-400 font-black text-3xl absolute opacity-0" style={{ top: '-10px', right: '20px' }}>
+                <span
+                  className="animate-zzz-1 text-blue-400 font-black text-3xl absolute opacity-0"
+                  style={{ top: '-10px', right: '20px' }}
+                >
                   Z
                 </span>
-                <span className="animate-zzz-2 text-blue-400 font-black text-4xl absolute opacity-0" style={{ top: '-45px', right: '55px' }}>
+                <span
+                  className="animate-zzz-2 text-blue-400 font-black text-4xl absolute opacity-0"
+                  style={{ top: '-45px', right: '55px' }}
+                >
                   Z
                 </span>
-                <span className="animate-zzz-3 text-blue-400 font-black text-5xl absolute opacity-0" style={{ top: '-95px', right: '100px' }}>
+                <span
+                  className="animate-zzz-3 text-blue-400 font-black text-5xl absolute opacity-0"
+                  style={{ top: '-95px', right: '100px' }}
+                >
                   Z
                 </span>
               </div>

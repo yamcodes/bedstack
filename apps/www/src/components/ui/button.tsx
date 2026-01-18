@@ -1,6 +1,6 @@
-import { cn } from '@/lib/cn';
 import Link from 'next/link';
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import { cn } from '@/lib/cn';
 
 interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -27,11 +27,7 @@ export function Button({
       'bg-background text-foreground hover:bg-accent border border-border shadow-xs',
   };
 
-  const combinedClassName = cn(
-    baseStyles,
-    variantStyles[variant],
-    className,
-  );
+  const combinedClassName = cn(baseStyles, variantStyles[variant], className);
 
   if (external) {
     return (
