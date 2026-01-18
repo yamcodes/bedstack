@@ -15,25 +15,16 @@ export function SafeNavLink({
   const router = useRouter();
 
   return (
-    <span
-      role="link"
-      tabIndex={0}
+    <button
+      type="button"
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
         router.push(href);
       }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          e.stopPropagation();
-          router.push(href);
-        }
-      }}
       className={className}
-      style={{ cursor: 'pointer' }}
     >
       {children}
-    </span>
+    </button>
   );
 }
