@@ -3,5 +3,12 @@
   "description": "Production-scale implementation of the Bedstack architecture.",
   "root": true,
   "icon": "Globe",
-  "pages": ["---Introduction---", "realworld"]
+  "pages": [
+    "---Introduction---",
+    "index",
+    "setup",
+    "---Deep Dive---",
+    "codebase",
+    "development"
+  ]
 }

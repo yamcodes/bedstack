@@ -1,0 +1,55 @@
+---
+title: Development & Testing
+description: How to maintain and test the Conduit implementation.
+---
+
+Developing on the Conduit app is designed to be fast. This guide covers the essential workflows for building and verifying the application.
+
+## Development Workflow
+
+1.  **Watch Mode**: Run `bun run --cwd apps/conduit dev` to start the app with auto-reloading.
+2.  **Linting & Formatting**: We use **Biome**. Run `bun run fix` from the root to automatically fix issues.
+3.  **Database Changes**: If you modify a `*.schema.ts` file:
+    - Run `bun run --cwd apps/conduit db:generate` to create a migration.
+    - Run `bun run --cwd apps/conduit db:push` to apply it.
+
+## Testing Strategy
+
+Bedstack uses Bun's built-in test runner. There are two types of tests in this codebase:
+
+### 1. Unit Tests
+Located next to the source files (e.g., `users.service.test.ts`). These focus on testing business logic in isolation.
+
+```bash terminal
+# Run all unit tests
+bun run --cwd apps/conduit test:unit
+```
+
+### 2. API Compliance Tests
+These are the rigorous [RealWorld API tests](https://github.com/gothinkster/realworld/tree/main/api). They ensure the app is 100% compliant with the specification.
+
+To run these:
+1.  Make sure the app is running in dev mode.
+2.  Run the following command:
+
+```bash terminal
+bun run --cwd apps/conduit test:api
+```
+
+## Exploring with Swagger
+
+Thanks to Elysia's integration, you can explore the entire API without writing a single line of client code. Open `http://localhost:3000/swagger` to:
+
+- View all endpoints and their expected request bodies.
+- Execute real requests against your local database.
+- See real-time validation errors if your request is malformed.
+
+## Deployment
+
+To build a production bundle of the Conduit app:
+
+```bash terminal
+bun run --cwd apps/conduit build
+```
+
+The resulting binary will be optimized and ready for deployment in any cloud environment.
