@@ -1,0 +1,14 @@
+{
+  "title": "RealWorld Example",
+  "description": "The official Bedstack RealWorld implementation",
+  "root": true,
+  "icon": "BookMarked",
+  "pages": [
+    "---Getting Started---",
+    "index",
+    "setup",
+    "---Deep Dive---",
+    "codebase",
+    "development"
+  ]
+}

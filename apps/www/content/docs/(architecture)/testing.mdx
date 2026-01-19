@@ -1,0 +1,55 @@
+---
+title: Testing
+description: High-speed testing architecture with Bun.
+---
+
+Testing is a first-class citizen in the Bedstack architecture. By leveraging Bun's native test runner, we achieve near-instant test execution, allowing for a tight feedback loop during development.
+
+## Testing Strategy
+
+Our architecture encourages testing at two primary levels:
+
+### 1. Unit Testing (Service Layer)
+The Service Layer is the best place for unit tests because it contains your core business logic. Since services are isolated from the database (thanks to the Repository layer), you can easily mock repositories to test logic in isolation.
+
+```typescript
+// src/users/users.service.test.ts
+import { describe, it, expect, mock } from 'bun:test';
+
+it('should prevent registration for banned domains', async () => {
+  const service = new UsersService(mockRepository);
+  expect(() => service.register({ email: 'test@banned.com' }))
+    .toThrow('Email domain is not allowed');
+});
+```
+
+### 2. Integration Testing (API Layer)
+Integration tests ensure that the entire stack (Controller → Service → Repository → DB) works together. We recommend using a real database instance (often via Docker) for these tests to ensure accuracy.
+
+---
+
+## The "Bedstack Way" of Testing
+
+### Co-Location
+Tests should be co-located with the code they are testing. This makes it obvious what is covered and keeps your workspace organized.
+- `users.service.ts`
+- `users.service.test.ts`
+
+### Speed as a Feature
+Because we use **Bun's runner**, there is no heavy overhead like Jest or Vitest. This encourages developers to run tests on every save, significantly reducing the chance of regressions.
+
+### Mocking with Ease
+Bun provides built-in mocking utilities that are simpler and faster than external counterparts.
+
+```typescript
+const myMock = mock(() => "hello");
+expect(myMock()).toBe("hello");
+```
+
+## Running Tests
+
+Bedstack projects come with pre-configured scripts:
+
+- `bun test`: Runs all tests in the project.
+- `bun test:watch`: Runs tests in watch mode.
+- `bun test:coverage`: Generates a code coverage report.

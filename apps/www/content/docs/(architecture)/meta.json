@@ -1,0 +1,21 @@
+{
+  "title": "Architecture",
+  "description": "The Bedstack architecture",
+  "root": true,
+  "icon": "Blocks",
+  "pages": [
+    "---Introduction---",
+    "index",
+    "what-is-bedstack",
+    "getting-started",
+    "---Design---",
+    "architecture",
+    "project-structure",
+    "---Core Patterns---",
+    "validation",
+    "database",
+    "authentication",
+    "error-handling",
+    "testing"
+  ]
+}

@@ -1,0 +1,70 @@
+---
+title: Project Structure
+description: How Bedstack organizes code for scalability.
+---
+
+Bedstack follows a **Feature-Based** folder structure. Instead of grouping files by their technical type (e.g., putting all controllers in one folder), we group them by the domain feature they belong to.
+
+## Monorepo Layout
+
+Bedstack is designed as a monorepo using **Bun Workspaces** and **Turborepo**.
+
+<Files>
+  <Folder name="apps">
+    <Folder name="api" description="Your backend application" />
+    <Folder name="www" description="Your documentation or frontend site" />
+  </Folder>
+  <Folder name="packages" description="Internal packages (shared logic, UI, etc.)" />
+  <Folder name="bin" description="Global scripts and CLI tools" />
+  <File name="turbo.json" description="Turborepo configuration" />
+  <File name="bun.lock" />
+  <File name="package.json" />
+</Files>
+
+
+## Feature Folders
+
+Inside a Bedstack application (like `apps/api`), code is organized into self-contained feature modules. This makes the codebase easier to navigate and allows features to be moved or scaled independently.
+
+### A Typical Feature Structure
+
+<Files>
+  <Folder name="src/users" defaultOpen>
+    <File name="users.controller.ts" description="REST endpoints" />
+    <File name="users.service.ts" description="Business logic" />
+    <File name="users.repository.ts" description="Database access" />
+    <File name="users.mapper.ts" description="Data transformation" />
+    <Folder name="schema">
+      <File name="users.schema.ts" description="Drizzle table definitions" />
+    </Folder>
+    <Folder name="dto">
+      <File name="create-user.dto.ts" description="Input validation (ArkType)" />
+      <File name="user.dto.ts" description="Output shape" />
+    </Folder>
+    <Folder name="interfaces">
+      <File name="user.interface.ts" description="Domain model" />
+      <File name="user-row.ts" description="Database row type" />
+    </Folder>
+  </Folder>
+</Files>
+
+
+## The `shared` Folder
+
+Global utilities, shared middleware, and cross-cutting concerns live in the `src/shared` directory.
+
+<Files>
+  <Folder name="src/shared" defaultOpen>
+    <Folder name="constants" description="Global constants (auth, validation, etc.)" />
+    <Folder name="errors" description="Global error types and factories" />
+    <Folder name="utils" description="Pure utility functions used app-wide" />
+  </Folder>
+</Files>
+
+
+> **Tip**: Avoid dumping everything into `shared`. If a utility or constant is only used in one feature, keep it inside that feature's folder.
+
+## Entry Points
+
+- **`src/main.ts`**: The entry point of the application.
+- **`src/app.module.ts`**: The "orchestrator" file that composes all individual feature controllers into a single Elysia instance. This pattern is inspired by NestJS to maintain a clean root application file.

@@ -1,0 +1,68 @@
+---
+title: Authentication
+description: Secure, scalable authentication architecture.
+---
+
+Bedstack provides a robust authentication architecture based on **JWT (JSON Web Tokens)** and the `jose` library. It is designed to be plug-and-play while maintaining strict security standards.
+
+## Architecture of Auth
+
+Authentication in Bedstack is handled through a dedicated **Auth Feature** and a reusable **Auth Service**.
+
+### 1. The Auth Service
+The `AuthService` is a singleton responsible for:
+- Signing and verifying JWTs.
+- Hash comparison for passwords (using Bun's native `password` utilities).
+- Extracting user context from request headers.
+
+### 2. Guarding Routes
+
+Bedstack uses Elysia hooks to protect routes. Depending on the endpoint, you might require a user to be logged in or simply want to identify them if they are.
+
+<Tabs items={['Required Login', 'Optional Login']}>
+<Tab value="Required Login">
+Use the `requireLogin` middleware to block unauthorized requests.
+
+```typescript
+// articles.controller.ts
+new Elysia()
+  .use(authModule)
+  .post('/', ({ body, user }) => {
+    return articlesService.create(body, user.id);
+  }, {
+    beforeHandle: [auth.requireLogin]
+  });
+```
+</Tab>
+<Tab value="Optional Login">
+For routes like "Get Articles," you might want to show if a user has favorited an article without requiring them to be logged in.
+
+```typescript
+// articles.controller.ts
+new Elysia()
+  .use(authModule)
+  .get('/', ({ user }) => {
+    // 'user' might be null here
+    return articlesService.findAll(user?.id);
+  });
+```
+</Tab>
+</Tabs>
+
+
+## Security Design
+
+### Token Format
+Bedstack adheres to common API standards. Clients should send tokens in the `Authorization` header:
+`Authorization: Token <your_jwt_here>`
+
+### Native Performance
+By leveraging **Bun's built-in hashing** (`Bun.password.hash`) and the lightweight `jose` library, authentication checks add minimal latency to your API requests.
+
+### Layer Isolation
+Notice that the Controller handles the *check* for authentication, but the `AuthService` handles the *logic* of verification. This ensures that your controllers remain clean and your auth logic is centralized.
+
+---
+
+## Implementing Social Auth
+Because of Bedstack's modular architecture, adding social login (like Google or GitHub) is as simple as adding new methods to your `AuthService` and new routes to your `AuthController`. The rest of your application layers remain untouched.

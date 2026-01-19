@@ -1,0 +1,29 @@
+---
+title: Overview
+description: Bedstack's reference implementation of the RealWorld specification.
+---
+
+**Conduit** is the flagship example of the [Bedstack Architecture](/docs/architecture). It is a production-ready implementation of the [RealWorld](https://github.com/gothinkster/realworld) specification—a "Medium.com" clone.
+
+## What is RealWorld?
+
+The RealWorld project provides a clear specification for building a full-featured blog platform. While "Todo" apps are great for a quick glance, RealWorld conveys the perspective required to build **real** applications.
+
+By adhering to a common [API specification](https://realworld-docs.netlify.app/specifications/backend/introduction), any RealWorld backend (like Bedstack) can be swapped out and used with any RealWorld-compatible frontend (React, Vue, Angular, etc.).
+
+## Why this implementation?
+
+We built Conduit to showcase how Bedstack stays "out of your way" while providing:
+
+- **100% Spec Compliance**: Every endpoint and error response matches the spec perfectly.
+- **Architectural Clarity**: Demonstrates the modular Layered Architecture (Controller-Service-Repository).
+- **Extreme Performance**: Powered by Bun and Elysia, it outperforms most other RealWorld implementations.
+- **Developer Experience**: Instant feedback, co-located tests, and seamless typesafety.
+
+## Getting Started
+
+If you're ready to see Bedstack in action:
+
+1.  **[Setup the App](/docs/realworld/setup)**: Get it running on your local machine.
+2.  **[Explore the Codebase](/docs/realworld/codebase)**: Understand how the features are organized.
+3.  **[Development & Testing](/docs/realworld/development)**: Learn how to contribute or run the compliance suite.

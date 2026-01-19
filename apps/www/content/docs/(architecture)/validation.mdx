@@ -1,0 +1,79 @@
+---
+title: Validation
+description: Seamless typesafety with ArkType in Bedstack.
+---
+
+In Bedstack, validation is not just an afterthought—it's a core part of the architecture. We use **ArkType** to ensure that data is valid at the "edge" (the Controller) and throughout the application.
+
+## The Role of DTOs
+
+Data Transfer Objects (DTOs) define the shape of data entering and leaving your application. In Bedstack, every DTO is an **ArkType** schema.
+
+### Defining an Input DTO
+
+Input DTOs are used in `POST`, `PUT`, and `PATCH` requests. ArkType allows you to define these using a concise string-based syntax or a more traditional object-based one.
+
+<Tabs items={['Simple Schema', 'Detailed Schema']}>
+<Tab value="Simple Schema">
+The string-based syntax is perfect for quickly defining shapes.
+
+```typescript
+import { type } from 'arktype';
+
+export const CreatePostDto = type({
+  title: 'string >= 3',
+  content: 'string',
+  'tags?': 'string[]', 
+});
+```
+</Tab>
+<Tab value="Detailed Schema">
+For complex rules and documentation, use the chained API.
+
+```typescript
+import { type } from 'arktype';
+
+export const CreatePostDto = type({
+  title: type('string').and('3 <= length <= 100'),
+  content: 'string',
+  'tags?': 'string[]',
+}).describe('A schema for creating a new post');
+```
+</Tab>
+</Tabs>
+
+
+## Validation at the Edge
+
+By using Elysia's native support for ArkType, validation happens automatically before your controller logic is ever executed.
+
+```typescript
+// src/posts/posts.controller.ts
+import { CreatePostDto } from './dto/create-post.dto';
+
+export const postsController = new Elysia({ prefix: '/posts' })
+  .post('/', ({ body }) => {
+    // 'body' is guaranteed to match CreatePostDto here
+    return postsService.create(body);
+  }, {
+    body: CreatePostDto
+  });
+```
+
+## Why This Architecture?
+
+1.  **Single Source of Truth**: Your validation schema *is* your TypeScript type.
+2.  **Instant Feedback**: Detailed error messages are generated automatically and sent back to the client.
+3.  **Performance**: ArkType's JIT-optimized validation is significantly faster than libraries like Zod or Joi.
+4.  **Security**: Strict validation at the Controller layer prevents malformed or malicious data from reaching your business logic or database.
+
+## Advanced Patterns
+
+For complex validation, you can use ArkType's logical operators or custom regex:
+
+```typescript
+export const UsernameSchema = type("string")
+  .and("3 <= length <= 20")
+  .and(regex(/^[a-z0-9_]+$/))
+  .describe("3-20 characters, lowercase letters, numbers, and underscores");
+```

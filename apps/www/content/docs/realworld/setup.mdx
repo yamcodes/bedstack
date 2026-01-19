@@ -1,0 +1,81 @@
+---
+title: Quickstart
+description: How to get the Conduit (RealWorld) app running locally.
+---
+
+This guide will walk you through setting up the reference implementation of the Bedstack architecture: the **Conduit** (RealWorld) app.
+
+## Prerequisites
+
+Ensure you have the following installed on your machine:
+
+- **[Bun](https://bun.sh)** (v1.1 or higher)
+- **[Docker](https://www.docker.com/)** (for running the PostgreSQL database)
+- **[Git](https://git-scm.com/)**
+
+<Steps>
+<Step>
+## 1. Clone the Repository
+
+Clone the Bedstack monorepo which contains the `conduit` application:
+
+```bash terminal
+git clone https://github.com/yamcodes/bedstack.git
+cd bedstack
+```
+</Step>
+
+<Step>
+## 2. Install Dependencies
+
+Bedstack uses Bun's built-in package manager. Run the following command in the root directory:
+
+```bash terminal
+bun install
+```
+</Step>
+
+<Step>
+## 3. Environment Variables
+
+The application requires some environment variables to connect to the database and sign JWTs. Copy the example file:
+
+```bash terminal
+cp apps/conduit/.env.example apps/conduit/.env
+```
+</Step>
+
+<Step>
+## 4. Database Setup
+
+We use Docker Compose to spin up a local PostgreSQL instance.
+
+```bash terminal
+# Start the database container
+bun run --cwd apps/conduit db:start
+```
+
+Once the database is running, apply the schema and seed it with initial data:
+
+```bash terminal
+# Push the schema to the DB
+bun run --cwd apps/conduit db:push
+
+# Seed with initial data
+bun run --cwd apps/conduit db:seed
+```
+</Step>
+
+<Step>
+## 5. Run the Application
+
+Now you can start the development server:
+
+```bash terminal
+bun run --cwd apps/conduit dev
+```
+
+The API is now available at `http://localhost:3000/api`. You can also visit `http://localhost:3000/swagger` to explore the interactive API documentation.
+</Step>
+</Steps>
+

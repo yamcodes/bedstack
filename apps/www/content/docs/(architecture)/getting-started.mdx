@@ -1,0 +1,60 @@
+---
+title: Getting Started
+description: How to start building with the Bedstack architecture.
+---
+
+To begin building with the Bedstack architecture, you don't "install" Bedstack itself. Instead, you adopt its patterns and use its recommended toolkit.
+
+## Tooling Prerequisites
+
+To build a high-performance Bedstack application, we recommend the following toolchain:
+
+- **[Bun](https://bun.sh)**: The foundation. You'll need Bun installed as your runtime, package manager, and test runner.
+- **[ElysiaJS](https://elysiajs.com)**: The web framework.
+- **[Drizzle ORM](https://orm.drizzle.team)**: For typesafe database access.
+- **[ArkType](https://arktype.io)**: For runtime validation.
+
+## Your First Bedstack App
+
+Starting a new Bedstack project is straightforward. Follow these steps to initialize your project and adopt the Bedstack pattern:
+
+<Steps>
+<Step>
+### Initialize your project
+
+Create a new directory and initialize it with Bun.
+
+```bash terminal
+mkdir my-bedstack-app
+cd my-bedstack-app
+bun init
+```
+</Step>
+
+<Step>
+### Add core dependencies
+
+Install the foundational Bedstack tools.
+
+```bash terminal
+bun add elysia drizzle-orm arktype
+```
+</Step>
+
+<Step>
+### Adopting the Bedstack Pattern
+
+Once your tools are in place, organize your code into the modular, layered structure:
+
+1.  **Features**: Group your code by domain (e.g., `users`, `products`).
+2.  **Layers**: Within each feature, separate logic into **Controllers**, **Services**, and **Repositories**.
+3.  **Types**: Ensure types flow from database schema to API responses.
+</Step>
+</Steps>
+
+
+---
+
+## Seeing it in Action
+
+If you want to see a full-scale implementation of this architecture, check out our **[RealWorld Example](/docs/realworld)** section. It provides a complete, working codebase that follows every principle discussed in this guide.

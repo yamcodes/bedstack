@@ -1,0 +1,60 @@
+---
+title: Error Handling
+description: Centralized and predictable error management.
+---
+
+A robust architecture requires a robust way to handle errors. Bedstack provides a centralized, typesafe mechanism for managing both expected (validation, domain) and unexpected (database, runtime) errors.
+
+## The Global Error Handler
+
+Bedstack applications use a single entry point for all errors called the **Global Error Handler**. This is defined in your `app.module.ts`.
+
+```typescript
+// src/app.module.ts
+export const app = new Elysia()
+  .onError(({ error, code, set }) => {
+    // 1. Handle Validation errors
+    if (code === 'VALIDATION') return formatValidationError(error);
+
+    // 2. Handle known Domain errors
+    if (error instanceof DomainError) {
+      set.status = error.status;
+      return { errors: error.serialize() };
+    }
+
+    // 3. Catch-all for unexpected errors
+    console.error(error);
+    set.status = 500;
+    return { errors: { server: ["An unexpected error occurred"] } };
+  });
+```
+
+## Domain-Specific Errors
+
+In the **Service Layer**, you should throw domain-specific errors when business rules are violated.
+
+```typescript
+// src/shared/errors/domain.error.ts
+export class DomainError extends Error {
+  constructor(public status: number, public message: string) {
+    super(message);
+  }
+  serialize() {
+    return { [this.constructor.name]: [this.message] };
+  }
+}
+```
+
+## Architecture of Response
+
+By centralizing error handling, Bedstack ensures that:
+
+1.  **Consistent JSON Structure**: All errors follow the same response format, making it easy for frontend clients to display meaningful messages.
+2.  **No Leaky Information**: Database or system errors are caught and logged, but only a generic message is sent to the client.
+3.  **Traceability**: Errors can be easily hooked into logging or monitoring services (like Sentry or Axiom) from a single location.
+
+## Validation Errors
+
+When **ArkType** validation fails at the Controller layer, Bedstack intercepts the error and transforms it into a developer-friendly format, pinpointing exactly which field failed and why. 
+
+This transformation logic lives in `src/shared/errors/formatters.ts`, keeping your core business logic clean.
