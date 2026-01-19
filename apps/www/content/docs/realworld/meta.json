@@ -1,0 +1,7 @@
+{
+  "title": "RealWorld Example",
+  "description": "Production-scale implementation of the Bedstack architecture.",
+  "root": true,
+  "icon": "Globe",
+  "pages": ["---Introduction---", "realworld"]
+}

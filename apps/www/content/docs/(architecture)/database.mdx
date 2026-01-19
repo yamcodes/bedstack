@@ -1,0 +1,59 @@
+---
+title: Database & ORM
+description: Typesafe database access with Drizzle ORM.
+---
+
+In the Bedstack architecture, the database is encapsulated within the **Repository** and **Schema** layers. We use **Drizzle ORM**, a "headless" ORM that provides the performance of raw SQL with the safety of TypeScript.
+
+## The Schema Layer
+
+Database tables are defined using Drizzle's `pgTable`. These definitions live within the `schema/` folder of each feature.
+
+```typescript
+// src/users/schema/users.schema.ts
+import { pgTable, serial, text } from 'drizzle-orm/pg-core';
+
+export const users = pgTable('users', {
+  id: serial('id').primaryKey(),
+  email: text('email').unique().notNull(),
+  username: text('username').notNull(),
+});
+```
+
+## The Repository Layer
+
+The Repository is the only layer allowed to import and use the Drizzle database instance and the schema definitions.
+
+```typescript
+// src/users/users.repository.ts
+import { db } from '@/core/database';
+import { users } from './schema/users.schema';
+import { eq } from 'drizzle-orm';
+
+export class UsersRepository {
+  async findByEmail(email: string) {
+    return await db.select().from(users).where(eq(users.email, email)).limit(1);
+  }
+
+  async create(data: typeof users.$inferInsert) {
+    return await db.insert(users).values(data).returning();
+  }
+}
+```
+
+## Architectural Benefits
+
+### 1. Separation of Concerns
+By confining database logic to the Repository, your **Service Layer** remains pure and focused on business rules. If you decide to change your database schema (e.g., renaming a column), you only need to update the Schema and Repository layers.
+
+### 2. Typesafe Migrations
+Bedstack uses `drizzle-kit` to manage migrations. Your TypeScript schemas are the source of truth for your database structure.
+
+### 3. Performance
+Drizzle is designed to avoid the overhead typical of large ORMs. It generates clean SQL and allows for fine-grained control over joins and selections, ensuring your Bedstack app remains "bleeding-edge" fast.
+
+## Common Workflows
+
+- **Modify Schema**: Update your `*.schema.ts` file.
+- **Generate Migration**: Run `bun run db:generate`.
+- **Apply Migration**: Run `bun run db:push` in development or `bun run db:migrate` in production.

@@ -1,0 +1,51 @@
+---
+title: Authentication
+description: Secure, scalable authentication architecture.
+---
+
+Bedstack provides a robust authentication architecture based on **JWT (JSON Web Tokens)** and the `jose` library. It is designed to be plug-and-play while maintaining strict security standards.
+
+## Architecture of Auth
+
+Authentication in Bedstack is handled through a dedicated **Auth Feature** and a reusable **Auth Service**.
+
+### 1. The Auth Service
+The `AuthService` is a singleton responsible for:
+- Signing and verifying JWTs.
+- Hash comparison for passwords (using Bun's native `password` utilities).
+- Extracting user context from request headers.
+
+### 2. Guarding Routes
+Bedstack uses Elysia's `beforeHandle` hook to protect routes. This is implemented in the Controller layer.
+
+```typescript
+// src/articles/articles.controller.ts
+import { AuthService } from '@/auth/auth.service';
+
+const auth = new AuthService();
+
+export const articlesController = new Elysia({ prefix: '/articles' })
+  .post('/', async ({ body, headers }) => {
+    const user = await auth.getUserFromHeaders(headers);
+    return articlesService.create(body, user.id);
+  }, {
+    beforeHandle: [auth.requireLogin]
+  });
+```
+
+## Security Design
+
+### Token Format
+Bedstack adheres to common API standards. Clients should send tokens in the `Authorization` header:
+`Authorization: Token <your_jwt_here>`
+
+### Native Performance
+By leveraging **Bun's built-in hashing** (`Bun.password.hash`) and the lightweight `jose` library, authentication checks add minimal latency to your API requests.
+
+### Layer Isolation
+Notice that the Controller handles the *check* for authentication, but the `AuthService` handles the *logic* of verification. This ensures that your controllers remain clean and your auth logic is centralized.
+
+---
+
+## Implementing Social Auth
+Because of Bedstack's modular architecture, adding social login (like Google or GitHub) is as simple as adding new methods to your `AuthService` and new routes to your `AuthController`. The rest of your application layers remain untouched.

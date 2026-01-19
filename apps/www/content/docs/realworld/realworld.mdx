@@ -1,0 +1,42 @@
+---
+title: RealWorld Example
+description: A production-scale implementation of the Bedstack architecture.
+---
+
+To demonstrate the [Bedstack architecture](/docs/architecture) in a real-world scenario, we have implemented the **[RealWorld](https://github.com/gothinkster/realworld)** specification. 
+
+This implementation (found in `apps/conduit`) is a fully-featured "Medium.com" clone backend that proves Bedstack's capability to handle production complexity.
+
+## The `conduit` App
+
+The `conduit` application follows every principle of the Bedstack architecture:
+
+- **Feature-Sliced**: Divided into `articles`, `users`, `profiles`, `comments`, and `tags`.
+- **Layered Architecture**: Every feature uses the Controller → Service → Repository pattern.
+- **Spec Compliant**: It matches the RealWorld API specification 100%, including all edge cases and error handling.
+
+## How to Explore
+
+The best way to learn Bedstack is to explore the `conduit` source code.
+
+### Feature Example: Articles
+Look at `src/articles` to see how complex relationships (like favoriting an article or filtering by tags) are handled across the Repository and Service layers.
+
+### Error Handling
+See `src/shared/errors` to see how the generic **Bedstack Error Handler** is adapted to the specific "RealWorld" error format required by the specification.
+
+### Auth Integration
+Check `src/auth` and how it's used in the `articles` and `users` controllers to protect sensitive endpoints.
+
+## Running Locally
+
+Follow the **[Installation Guide](/docs/installation)** to get the `conduit` app running on your machine. Once running, you can:
+
+1.  **Browse the API**: Visit `http://localhost:3000/swagger` to see the interactive documentation.
+2.  **Run Tests**: Run `bun run test:api` to see the full suite of RealWorld compliance tests pass in real-time.
+
+---
+
+## Conclusion
+
+While Bedstack can be used for any backend project, the RealWorld implementation serves as the definitive reference for "The Bedstack Way."

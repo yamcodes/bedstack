@@ -1,0 +1,57 @@
+---
+title: Project Structure
+description: How Bedstack organizes code for scalability.
+---
+
+Bedstack follows a **Feature-Based** folder structure. Instead of grouping files by their technical type (e.g., putting all controllers in one folder), we group them by the domain feature they belong to.
+
+## Monorepo Layout
+
+Bedstack is designed as a monorepo using **Bun Workspaces** and **Turborepo**.
+
+```bash
+.
+├── apps
+│   ├── api         # Your backend application
+│   └── www         # Your documentation or frontend site
+├── packages        # Internal packages (shared logic, UI, etc.)
+├── bin             # Global scripts and CLI tools
+└── turbo.json      # Turborepo configuration
+```
+
+## Feature Folders
+
+Inside a Bedstack application (like `apps/api`), code is organized into self-contained feature modules. This makes the codebase easier to navigate and allows features to be moved or scaled independently.
+
+### A Typical Feature Structure
+
+```bash
+src/users
+├── users.controller.ts   # REST endpoints
+├── users.service.ts      # Business logic
+├── users.repository.ts    # Database access
+├── users.mapper.ts        # Data transformation
+├── schema/
+│   └── users.schema.ts    # Drizzle table definitions
+├── dto/
+│   ├── create-user.dto.ts # Input validation (ArkType)
+│   └── user.dto.ts        # Output shape
+└── interfaces/
+    ├── user.interface.ts  # Domain model
+    └── user-row.ts        # Database row type
+```
+
+## The `shared` Folder
+
+Global utilities, shared middleware, and cross-cutting concerns live in the `src/shared` directory.
+
+- **`shared/constants`**: Global constants (auth, validation, etc.).
+- **`shared/errors`**: Global error types and factories.
+- **`shared/utils`**: Pure utility functions used app-wide.
+
+> **Tip**: Avoid dumping everything into `shared`. If a utility or constant is only used in one feature, keep it inside that feature's folder.
+
+## Entry Points
+
+- **`src/main.ts`**: The entry point of the application.
+- **`src/app.module.ts`**: The "orchestrator" file that composes all individual feature controllers into a single Elysia instance. This pattern is inspired by NestJS to maintain a clean root application file.

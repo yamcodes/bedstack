@@ -1,0 +1,66 @@
+---
+title: Architecture
+description: The modular layered architecture of Bedstack.
+---
+
+Bedstack is more than just a collection of tools; it's a **modular Layered Architecture** for building scalable and maintainable backend applications. 
+
+Inspired by the [NestJS philosophy](https://docs.nestjs.com/#philosophy), Bedstack favors **separation of concerns** over minimalism. This ensures that as your application grows, the boundaries between different parts of the system remain clear.
+
+## The 3 Primary Layers
+
+The core of the architecture is divided into three main layers:
+
+1.  **Controller Layer**: Handles the communication with the client.
+2.  **Service Layer**: Encapsulates the business logic of the application.
+3.  **Repository Layer**: Manages all interactions with the database.
+
+### 1. Controller Layer
+The controller is the entry point for requests. Its job is to:
+- Receive data from the client (via DTOs).
+- Validate input using **ArkType**.
+- Call the appropriate service methods.
+- Return the final response to the client.
+
+Controllers should remain "thin," containing no business logic.
+
+### 2. Service Layer
+The service layer is where the "heavy lifting" happens. It:
+- Contains all business rules and domain logic.
+- Validates complex logic (e.g., "is this user allowed to perform this action?").
+- Orchestrates calls to one or more repositories.
+- Handles domain-specific errors.
+
+By keeping business logic in services, you ensure it can be reused across different controllers (e.g., REST, GraphQL, or CLI scripts).
+
+### 3. Repository Layer
+The repository layer is the only part of the app that knows about the database. It:
+- Executes SQL queries via **Drizzle ORM**.
+- Handles pagination, sorting, and filtering at the database level.
+- Returns "raw" database rows.
+
+Repositories make no assumptions about business rules; they simply fulfill data requests.
+
+---
+
+## Supporting Layers
+
+To maintain strict separation, Bedstack uses two supporting layers:
+
+### Mapper Layer
+Mappers are responsible for transforming data as it moves between layers. For example:
+- Converting a database "row" (snake_case) into a domain "entity" (camelCase).
+- Formatting complex nested database results into clean JSON responses for the client.
+
+### Schema Layer
+Using **Drizzle ORM**, we define our database schemas and relations in isolated files. This allows the Repository layer to remain typesafe while keeping the physical database structure decupled from the business logic.
+
+## The Flow of Data
+
+Data typically flows in one direction:
+`Client` → `Controller` → `Service` → `Repository` → `Database`
+
+And returns back up:
+`Database` → `Repository` → `Mapper` → `Service` → `Controller` → `Client`
+
+This strict flow makes the system predictable, easier to test, and highly resilient to change.
