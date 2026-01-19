@@ -10,20 +10,38 @@ In Bedstack, validation is not just an afterthought—it's a core part of the ar
 Data Transfer Objects (DTOs) define the shape of data entering and leaving your application. In Bedstack, every DTO is an **ArkType** schema.
 
 ### Defining an Input DTO
-Input DTOs are used in `POST`, `PUT`, and `PATCH` requests to validate the request body.
+
+Input DTOs are used in `POST`, `PUT`, and `PATCH` requests. ArkType allows you to define these using a concise string-based syntax or a more traditional object-based one.
+
+<Tabs items={['Simple Schema', 'Detailed Schema']}>
+<Tab value="Simple Schema">
+The string-based syntax is perfect for quickly defining shapes.
 
 ```typescript
-// src/posts/dto/create-post.dto.ts
 import { type } from 'arktype';
 
 export const CreatePostDto = type({
   title: 'string >= 3',
   content: 'string',
-  'tags?': 'string[]', // ? denotes optional
+  'tags?': 'string[]', 
 });
-
-export type CreatePostDto = typeof CreatePostDto.infer;
 ```
+</Tab>
+<Tab value="Detailed Schema">
+For complex rules and documentation, use the chained API.
+
+```typescript
+import { type } from 'arktype';
+
+export const CreatePostDto = type({
+  title: type('string').and('3 <= length <= 100'),
+  content: 'string',
+  'tags?': 'string[]',
+}).describe('A schema for creating a new post');
+```
+</Tab>
+</Tabs>
+
 
 ## Validation at the Edge
 

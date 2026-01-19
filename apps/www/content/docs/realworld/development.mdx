@@ -7,11 +7,25 @@ Developing on the Conduit app is designed to be fast. This guide covers the esse
 
 ## Development Workflow
 
-1.  **Watch Mode**: Run `bun run --cwd apps/conduit dev` to start the app with auto-reloading.
-2.  **Linting & Formatting**: We use **Biome**. Run `bun run fix` from the root to automatically fix issues.
-3.  **Database Changes**: If you modify a `*.schema.ts` file:
-    - Run `bun run --cwd apps/conduit db:generate` to create a migration.
-    - Run `bun run --cwd apps/conduit db:push` to apply it.
+<Steps>
+<Step>
+### Watch Mode
+Run `bun run --cwd apps/conduit dev` to start the app with auto-reloading.
+</Step>
+
+<Step>
+### Linting & Formatting
+We use **Biome**. Run `bun run fix` from the root to automatically fix issues.
+</Step>
+
+<Step>
+### Database Changes
+If you modify a `*.schema.ts` file:
+- Run `bun run --cwd apps/conduit db:generate` to create a migration.
+- Run `bun run --cwd apps/conduit db:push` to apply it.
+</Step>
+</Steps>
+
 
 ## Testing Strategy
 

@@ -54,6 +54,28 @@ Drizzle is designed to avoid the overhead typical of large ORMs. It generates cl
 
 ## Common Workflows
 
-- **Modify Schema**: Update your `*.schema.ts` file.
-- **Generate Migration**: Run `bun run db:generate`.
-- **Apply Migration**: Run `bun run db:push` in development or `bun run db:migrate` in production.
+<Steps>
+<Step>
+### Modify Schema
+Update your `*.schema.ts` file within the feature folder.
+</Step>
+<Step>
+### Generate Migration
+Run the following command to detect changes and generate a new SQL migration file:
+```bash terminal
+bun run db:generate
+```
+</Step>
+<Step>
+### Apply Changes
+Apply the migration to your local database:
+```bash terminal
+bun run db:push
+```
+</Step>
+</Steps>
+
+<Callout type="info">
+In production, you should use `bun run db:migrate` which runs the generated SQL files in order against your target database.
+</Callout>
+

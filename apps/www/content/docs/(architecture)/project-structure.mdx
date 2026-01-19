@@ -9,15 +9,18 @@ Bedstack follows a **Feature-Based** folder structure. Instead of grouping files
 
 Bedstack is designed as a monorepo using **Bun Workspaces** and **Turborepo**.
 
-```bash
-.
-├── apps
-│   ├── api         # Your backend application
-│   └── www         # Your documentation or frontend site
-├── packages        # Internal packages (shared logic, UI, etc.)
-├── bin             # Global scripts and CLI tools
-└── turbo.json      # Turborepo configuration
-```
+<Files>
+  <Folder name="apps">
+    <Folder name="api" description="Your backend application" />
+    <Folder name="www" description="Your documentation or frontend site" />
+  </Folder>
+  <Folder name="packages" description="Internal packages (shared logic, UI, etc.)" />
+  <Folder name="bin" description="Global scripts and CLI tools" />
+  <File name="turbo.json" description="Turborepo configuration" />
+  <File name="bun.lock" />
+  <File name="package.json" />
+</Files>
+
 
 ## Feature Folders
 
@@ -25,29 +28,39 @@ Inside a Bedstack application (like `apps/api`), code is organized into self-con
 
 ### A Typical Feature Structure
 
-```bash
-src/users
-├── users.controller.ts   # REST endpoints
-├── users.service.ts      # Business logic
-├── users.repository.ts    # Database access
-├── users.mapper.ts        # Data transformation
-├── schema/
-│   └── users.schema.ts    # Drizzle table definitions
-├── dto/
-│   ├── create-user.dto.ts # Input validation (ArkType)
-│   └── user.dto.ts        # Output shape
-└── interfaces/
-    ├── user.interface.ts  # Domain model
-    └── user-row.ts        # Database row type
-```
+<Files>
+  <Folder name="src/users" defaultOpen>
+    <File name="users.controller.ts" description="REST endpoints" />
+    <File name="users.service.ts" description="Business logic" />
+    <File name="users.repository.ts" description="Database access" />
+    <File name="users.mapper.ts" description="Data transformation" />
+    <Folder name="schema">
+      <File name="users.schema.ts" description="Drizzle table definitions" />
+    </Folder>
+    <Folder name="dto">
+      <File name="create-user.dto.ts" description="Input validation (ArkType)" />
+      <File name="user.dto.ts" description="Output shape" />
+    </Folder>
+    <Folder name="interfaces">
+      <File name="user.interface.ts" description="Domain model" />
+      <File name="user-row.ts" description="Database row type" />
+    </Folder>
+  </Folder>
+</Files>
+
 
 ## The `shared` Folder
 
 Global utilities, shared middleware, and cross-cutting concerns live in the `src/shared` directory.
 
-- **`shared/constants`**: Global constants (auth, validation, etc.).
-- **`shared/errors`**: Global error types and factories.
-- **`shared/utils`**: Pure utility functions used app-wide.
+<Files>
+  <Folder name="src/shared" defaultOpen>
+    <Folder name="constants" description="Global constants (auth, validation, etc.)" />
+    <Folder name="errors" description="Global error types and factories" />
+    <Folder name="utils" description="Pure utility functions used app-wide" />
+  </Folder>
+</Files>
+
 
 > **Tip**: Avoid dumping everything into `shared`. If a utility or constant is only used in one feature, keep it inside that feature's folder.
 

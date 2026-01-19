@@ -32,3 +32,20 @@ The selected technologies share Bedstack's core philosophy:
 Bedstack is unapologetically opinionated. A tech stack is not just a menu of options; it is a curated path. We've selected these tools because they reinforce each other to create a developer experience that is both fast and safe.
 
 Whether you are building a small MVP or a large-scale production system, the **Bedstack Architecture** provides the structure you need to move fast without breaking things.
+
+---
+
+## FAQ
+
+<Accordions>
+  <Accordion title="Can I use Bedstack with Node.js?">
+    Bedstack is designed specifically for **Bun**. While most of the tools (Elysia, Drizzle, ArkType) work on Node.js, the core philosophy of Bedstack—unmatched speed and zero-boilerplate—is best achieved using the Bun runtime.
+  </Accordion>
+  <Accordion title="How does it compare to NestJS?">
+    Bedstack is heavily inspired by NestJS's modular and layered architecture but aims for **minimal friction**. We avoid heavy use of decorators and complex dependency injection, favoring clean TypeScript patterns and the performance of the Bun ecosystem.
+  </Accordion>
+  <Accordion title="Is it production ready?">
+    Yes! Our [RealWorld example implementation](/docs/realworld) is a non-trivial, production-scale application that demonstrates how Bedstack handles real-world complexity, authentication, and database relationships.
+  </Accordion>
+</Accordions>
+

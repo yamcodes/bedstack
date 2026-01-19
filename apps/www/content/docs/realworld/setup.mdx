@@ -13,6 +13,8 @@ Ensure you have the following installed on your machine:
 - **[Docker](https://www.docker.com/)** (for running the PostgreSQL database)
 - **[Git](https://git-scm.com/)**
 
+<Steps>
+<Step>
 ## 1. Clone the Repository
 
 Clone the Bedstack monorepo which contains the `conduit` application:
@@ -21,7 +23,9 @@ Clone the Bedstack monorepo which contains the `conduit` application:
 git clone https://github.com/yamcodes/bedstack.git
 cd bedstack
 ```
+</Step>
 
+<Step>
 ## 2. Install Dependencies
 
 Bedstack uses Bun's built-in package manager. Run the following command in the root directory:
@@ -29,7 +33,9 @@ Bedstack uses Bun's built-in package manager. Run the following command in the r
 ```bash terminal
 bun install
 ```
+</Step>
 
+<Step>
 ## 3. Environment Variables
 
 The application requires some environment variables to connect to the database and sign JWTs. Copy the example file:
@@ -37,7 +43,9 @@ The application requires some environment variables to connect to the database a
 ```bash terminal
 cp apps/conduit/.env.example apps/conduit/.env
 ```
+</Step>
 
+<Step>
 ## 4. Database Setup
 
 We use Docker Compose to spin up a local PostgreSQL instance.
@@ -56,7 +64,9 @@ bun run --cwd apps/conduit db:push
 # Seed with initial data
 bun run --cwd apps/conduit db:seed
 ```
+</Step>
 
+<Step>
 ## 5. Run the Application
 
 Now you can start the development server:
@@ -66,3 +76,6 @@ bun run --cwd apps/conduit dev
 ```
 
 The API is now available at `http://localhost:3000/api`. You can also visit `http://localhost:3000/swagger` to explore the interactive API documentation.
+</Step>
+</Steps>
+

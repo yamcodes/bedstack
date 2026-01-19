@@ -16,22 +16,42 @@ To build a high-performance Bedstack application, we recommend the following too
 
 ## Your First Bedstack App
 
-Starting a new Bedstack project is as simple as initializing a Bun project and adding the core dependencies.
+Starting a new Bedstack project is straightforward. Follow these steps to initialize your project and adopt the Bedstack pattern:
+
+<Steps>
+<Step>
+### Initialize your project
+
+Create a new directory and initialize it with Bun.
 
 ```bash terminal
 mkdir my-bedstack-app
 cd my-bedstack-app
 bun init
+```
+</Step>
+
+<Step>
+### Add core dependencies
+
+Install the foundational Bedstack tools.
+
+```bash terminal
 bun add elysia drizzle-orm arktype
 ```
+</Step>
 
-## Adopting the Pattern
+<Step>
+### Adopting the Bedstack Pattern
 
-Once your tools are in place, the "Bedstack way" involves organizing your code into a **modular, layered structure**:
+Once your tools are in place, organize your code into the modular, layered structure:
 
-1.  **Features**: Group your code by domain (e.g., `users`, `products`) rather than file type.
-2.  **Layers**: Within each feature, separate your logic into **Controllers**, **Services**, and **Repositories**.
-3.  **Types**: Ensure your types flow from your database schema all the way to your API responses.
+1.  **Features**: Group your code by domain (e.g., `users`, `products`).
+2.  **Layers**: Within each feature, separate logic into **Controllers**, **Services**, and **Repositories`.
+3.  **Types**: Ensure types flow from database schema to API responses.
+</Step>
+</Steps>
+
 
 ---
 

@@ -16,22 +16,39 @@ The `AuthService` is a singleton responsible for:
 - Extracting user context from request headers.
 
 ### 2. Guarding Routes
-Bedstack uses Elysia's `beforeHandle` hook to protect routes. This is implemented in the Controller layer.
+
+Bedstack uses Elysia hooks to protect routes. Depending on the endpoint, you might require a user to be logged in or simply want to identify them if they are.
+
+<Tabs items={['Required Login', 'Optional Login']}>
+<Tab value="Required Login">
+Use the `requireLogin` middleware to block unauthorized requests.
 
 ```typescript
-// src/articles/articles.controller.ts
-import { AuthService } from '@/auth/auth.service';
-
-const auth = new AuthService();
-
-export const articlesController = new Elysia({ prefix: '/articles' })
-  .post('/', async ({ body, headers }) => {
-    const user = await auth.getUserFromHeaders(headers);
+// articles.controller.ts
+new Elysia()
+  .use(authModule)
+  .post('/', ({ body, user }) => {
     return articlesService.create(body, user.id);
   }, {
     beforeHandle: [auth.requireLogin]
   });
 ```
+</Tab>
+<Tab value="Optional Login">
+For routes like "Get Articles," you might want to show if a user has favorited an article without requiring them to be logged in.
+
+```typescript
+// articles.controller.ts
+new Elysia()
+  .use(authModule)
+  .get('/', ({ user }) => {
+    // 'user' might be null here
+    return articlesService.findAll(user?.id);
+  });
+```
+</Tab>
+</Tabs>
+
 
 ## Security Design
 
