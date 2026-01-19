@@ -6,9 +6,9 @@
   "pages": [
     "---Getting Started---",
     "index",
-    "setup",
+    "quickstart",
     "---Deep Dive---",
-    "codebase",
+    "project-structure",
     "development"
   ]
 }

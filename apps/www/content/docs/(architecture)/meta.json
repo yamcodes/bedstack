@@ -14,7 +14,7 @@
     "---Core Patterns---",
     "validation",
     "database",
-    "authentication",
+    "auth",
     "error-handling",
     "testing"
   ]
