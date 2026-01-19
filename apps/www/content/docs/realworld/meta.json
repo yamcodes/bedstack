@@ -1,8 +1,8 @@
 {
   "title": "RealWorld Example",
-  "description": "Production-scale implementation of the Bedstack architecture.",
+  "description": "The official Bedstack RealWorld implementation",
   "root": true,
-  "icon": "Globe",
+  "icon": "BookMarked",
   "pages": [
     "---Introduction---",
     "index",

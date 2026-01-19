@@ -1,6 +1,6 @@
 {
   "title": "Architecture",
-  "description": "The architecture of Bedstack",
+  "description": "The Bedstack architecture",
   "root": true,
   "icon": "Blocks",
   "pages": [
