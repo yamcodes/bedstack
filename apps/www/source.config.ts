@@ -1,4 +1,4 @@
-import { remarkMdxFiles } from 'fumadocs-core/mdx-plugins/remark-mdx-files';
+import { remarkMdxFiles } from 'fumadocs-core/mdx-plugins';
 import {
   defineConfig,
   defineDocs,

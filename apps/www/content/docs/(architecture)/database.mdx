@@ -32,7 +32,9 @@ import { eq } from 'drizzle-orm';
 
 export class UsersRepository {
   async findByEmail(email: string) {
-    return await db.select().from(users).where(eq(users.email, email)).limit(1);
+    return await db.query.users.findFirst({
+      where: eq(users.email, email),
+    });
   }
 
   async create(data: typeof users.$inferInsert) {
