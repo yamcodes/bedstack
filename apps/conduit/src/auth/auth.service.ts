@@ -1,8 +1,8 @@
+import env from '@env';
 import { Type } from '@sinclair/typebox';
 import { Value } from '@sinclair/typebox/value';
 import { StatusCodes } from 'http-status-codes';
 import * as jose from 'jose';
-import { env } from '@/core/env';
 import { RealWorldError } from '@/shared/errors';
 import type { UserRow } from '@/users/interfaces';
 
