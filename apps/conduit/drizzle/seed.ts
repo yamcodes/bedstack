@@ -1,9 +1,9 @@
 import { exit } from 'node:process';
 import { parseArgs } from 'node:util';
+import env from '@env';
 import { reset, seed } from 'drizzle-seed';
 import { articles, favoriteArticles } from '@/articles/articles.schema';
 import { comments } from '@/comments/comments.schema';
-import { env } from '@/core/env';
 import { db } from '@/database/database.providers';
 import { articleTags, tags } from '@/tags/tags.schema';
 import { userFollows, users } from '@/users/users.schema';

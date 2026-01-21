@@ -38,7 +38,7 @@ bun install
 <Step>
 ## Environment Variables
 
-The application requires some environment variables to connect to the database and sign JWTs. Copy the example file:
+The application requires some environment variables to connect to the database and sign JWTs. Bedstack uses **ArkEnv** to ensure these are valid at startup. Copy the example file:
 
 ```bash terminal
 cp apps/conduit/.env.example apps/conduit/.env

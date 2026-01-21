@@ -1,0 +1,87 @@
+---
+title: Configuration
+description: Typesafe environment variables with ArkEnv.
+---
+
+In Bedstack, environment variables are more than just strings—they are fully typed and validated at startup using [**ArkEnv**](https://arkenv.js.org).
+
+## Why ArkEnv?
+
+Configuration is often one of the most fragile parts of an application. Missing variables or incorrect types can lead to runtime crashes that are difficult to debug. Bedstack uses **ArkEnv** (built on [**ArkType**](https://arktype.io)) to solve this:
+
+1.  **Strict Validation**: The application won't even start if your environment variables don't match your schema.
+2.  **Zero-Runtime Overhead**: ArkEnv uses ArkType's JIT-optimized validation for near-instant checks.
+3.  **Full Type Safety**: Your configuration is an object with perfect IDE autocomplete and type-checking.
+4.  **Implicit Conversion**: String-based environment variables are automatically cast to numbers, booleans, or complex types as defined in your schema.
+
+## Defining Your Configuration
+
+In a Bedstack application, your configuration resides in `env.config.ts` at the root of your app.
+
+```typescript title="apps/conduit/env.config.ts"
+import arkenv from 'arkenv';
+
+export default arkenv({
+  PORT: 'number.port = 3000',
+  NODE_ENV: "'development' | 'production' | 'test' = 'development'",
+  DATABASE_URL: 'string',
+  JWT_SECRET: 'string',
+  LOG_LEVEL: "'debug' | 'info' | 'error' = 'info'",
+});
+```
+
+### Schema Syntax
+
+Since ArkEnv is powered by ArkType, you can use the same powerful string-based syntax:
+
+-   **Defaults**: Use the `=` operator to provide a default value.
+-   **Types**: Use `string`, `number`, `boolean`, or literal unions like `'dev' | 'prod'`.
+-   **Keywords**: Use specialized keywords like `number.port` for port validation.
+
+## Consuming Configuration
+
+To use your environment variables, simply import the default export from your config file. In Bedstack, we typically alias this to `@env` in `tsconfig.json`.
+
+```typescript title="src/main.ts"
+import env from '@env';
+import { Elysia } from 'elysia';
+
+const app = new Elysia()
+  .get('/', () => 'Hello Bedstack')
+  .listen(env.PORT);
+
+console.log(`🚀 Server running on port ${env.PORT}`);
+```
+
+### Benefits of the `@env` Alias
+
+By using the `@env` alias, you can import your configuration from anywhere in your application without worrying about relative paths. It also makes it clear that you are accessing the validated, typed environment.
+
+## Integration with Drizzle
+
+Bedstack uses the same configuration for database migrations and runtime access. This ensures consistency between your application code and your migration scripts.
+
+```typescript title="drizzle.config.ts"
+import env from '@env';
+import { defineConfig } from 'drizzle-kit';
+
+export default defineConfig({
+  out: './drizzle/migrations',
+  schema: '**/*.schema.ts',
+  dialect: 'postgresql',
+  dbCredentials: {
+    url: env.DATABASE_URL,
+  },
+});
+```
+
+## Local Development
+
+For local development, we recommend using a `.env` file. ArkEnv will automatically load variables from your `.env` file if it exists.
+
+```bash title=".env"
+JWT_SECRET=supersecretkey
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/bedstack
+```
+
+Remember never to commit your `.env` file to version control. Use `.env.example` as a template for other developers.

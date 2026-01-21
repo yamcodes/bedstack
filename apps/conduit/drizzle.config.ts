@@ -1,5 +1,5 @@
+import env from '@env';
 import { defineConfig } from 'drizzle-kit';
-import { env } from '@/core/env';
 
 const dbCredentials = {
   host: env.POSTGRES_HOST,

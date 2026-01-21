@@ -13,6 +13,7 @@
     "project-structure",
     "---Core Patterns---",
     "validation",
+    "configuration",
     "database",
     "auth",
     "error-handling",
