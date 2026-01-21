@@ -36,7 +36,7 @@ export function Heading<T extends Types = 'h1'>({
       <div className="absolute -left-7 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-end pr-2 opacity-0 group-hover:opacity-100 transition-opacity w-8">
         <a
           href={`#${props.id}`}
-          className="p-1 rounded-md text-fd-muted-foreground hover:bg-fd-accent transition-all duration-200"
+          className="p-1 rounded-md text-fd-primary transition-all duration-200 focus:outline-none active:ring-2 active:ring-fd-primary"
           aria-label="Link to section"
           data-no-underline
         >
