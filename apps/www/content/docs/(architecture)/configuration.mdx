@@ -3,11 +3,11 @@ title: Configuration
 description: Typesafe environment variables with ArkEnv.
 ---
 
-In Bedstack, environment variables are more than just strings—they are fully typed and validated at startup using **ArkEnv**.
+In Bedstack, environment variables are more than just strings—they are fully typed and validated at startup using [**ArkEnv**](https://arkenv.js.org).
 
 ## Why ArkEnv?
 
-Configuration is often one of the most fragile parts of an application. Missing variables or incorrect types can lead to runtime crashes that are difficult to debug. Bedstack uses **ArkEnv** (built on **ArkType**) to solve this:
+Configuration is often one of the most fragile parts of an application. Missing variables or incorrect types can lead to runtime crashes that are difficult to debug. Bedstack uses **ArkEnv** (built on [**ArkType**](https://arktype.io)) to solve this:
 
 1.  **Strict Validation**: The application won't even start if your environment variables don't match your schema.
 2.  **Zero-Runtime Overhead**: ArkEnv uses ArkType's JIT-optimized validation for near-instant checks.
