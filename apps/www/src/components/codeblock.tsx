@@ -136,7 +136,7 @@ export function CodeBlock({
         ref={areaRef}
         {...viewportProps}
         className={cn(
-          'text-[0.8125rem] py-3.5 overflow-auto max-h-[600px] fd-scroll-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fd-ring',
+          'text-[0.8125rem] py-3.5 overflow-auto max-h-150 fd-scroll-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-fd-ring',
           viewportProps.className,
         )}
         style={
