@@ -21,16 +21,18 @@ The application is broken down into domain-driven features. Each feature is self
 
 Let's look at the `articles` feature as an example:
 
-```bash
-src/articles/
-├── articles.controller.ts  # Elysia routes and input validation
-├── articles.service.ts     # Business logic (slug generation, favoriting)
-├── articles.repository.ts  # Raw Drizzle queries
-├── articles.mapper.ts      # Transforming DB rows to RealWorld JSON
-├── schema/
-│   └── articles.schema.ts  # Table and relation definitions
-└── dto/                    # ArkType schemas for validation
-```
+<Files>
+  <Folder name="src/articles" defaultOpen>
+    <File name="articles.controller.ts" description="Elysia routes and input validation" />
+    <File name="articles.service.ts" description="Business logic (slug generation, favoriting)" />
+    <File name="articles.repository.ts" description="Raw Drizzle queries" />
+    <File name="articles.mapper.ts" description="Transforming DB rows to RealWorld JSON" />
+    <Folder name="schema">
+      <File name="articles.schema.ts" description="Table and relation definitions" />
+    </Folder>
+    <Folder name="dto" description="ArkType schemas for validation" />
+  </Folder>
+</Files>
 
 ### Dependency Flow
 A key rule in this codebase is the **unidirectional dependency flow**:
@@ -42,9 +44,13 @@ Services never touch the `db` object directly; they always go through a Reposito
 
 Items that are not feature-specific live in `src/shared`:
 
-- **`shared/errors`**: Custom error classes like `RealWorldError` that handle the specific format required by the spec.
-- **`shared/constants`**: Global strings and configuration.
-- **`shared/utils`**: Helpers for tasks like slugification.
+<Files>
+  <Folder name="src/shared" defaultOpen>
+    <Folder name="errors" description="Custom error classes (e.g., RealWorldError)" />
+    <Folder name="constants" description="Global strings and configuration" />
+    <Folder name="utils" description="Helpers for tasks like slugification" />
+  </Folder>
+</Files>
 
 ## Database Management
 

@@ -1,4 +1,13 @@
 'use client';
+import { useCopyButton } from '@fumadocs/ui/hooks/use-copy-button';
+import { mergeRefs } from '@fumadocs/ui/merge-refs';
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from 'fumadocs-ui/components/tabs';
+import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { Check, Copy } from 'lucide-react';
 import {
   type ComponentProps,
@@ -11,15 +20,6 @@ import {
   useRef,
 } from 'react';
 import { cn } from '@/lib/cn';
-import { useCopyButton } from '@fumadocs/ui/hooks/use-copy-button';
-import { buttonVariants } from 'fumadocs-ui/components/ui/button';
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from 'fumadocs-ui/components/tabs';
-import { mergeRefs } from '@fumadocs/ui/merge-refs';
 
 export interface CodeBlockProps extends ComponentProps<'figure'> {
   /**
@@ -111,6 +111,7 @@ export function CodeBlock({
           {typeof icon === 'string' ? (
             <div
               className="[&_svg]:size-3.5"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: icon is svg
               dangerouslySetInnerHTML={{
                 __html: icon,
               }}

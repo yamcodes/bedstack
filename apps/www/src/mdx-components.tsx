@@ -10,8 +10,8 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
-import { ExternalLink } from './components/ui/external-link';
 import { CodeBlock, Pre } from './components/codeblock';
+import { ExternalLink } from './components/ui/external-link';
 
 const generator = createGenerator({
   cache: createFileSystemGeneratorCache('.next/fumadocs-typescript'),
