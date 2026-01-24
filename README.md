@@ -1,14 +1,14 @@
 # ![RealWorld Example App](assets/logo.png)
 
-> ### Elysia + Drizzle codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
+> ### ElysiaJS + Drizzle ORM codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
 ### [Demo](https://demo.realworld.show)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
 
-[![Tests Status](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml/badge.svg?event=push&branch=main&)](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml?query=branch%3Amain+event%3Apush) [![License](https://custom-icon-badges.demolab.com/github/license/bedstack/elysia-drizzle-realworld-example?label=License&color=blue&logo=law&labelColor=0d1117)](https://github.com/bedstack/elysia-drizzle-realworld-example/blob/main/LICENSE) [![Bun](https://img.shields.io/badge/Bun-14151a?logo=bun&logoColor=fbf0df)](https://bun.com/) [![ElysiaJS](https://custom-icon-badges.demolab.com/badge/ElysiaJS-0f172b.svg?logo=elysia)](https://elysiajs.com/) [![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?logo=drizzle&logoColor=000)](https://drizzle.team/) [![Biome](https://img.shields.io/badge/Biome-24272f?logo=biome&logoColor=f6f6f9)](https://biomejs.dev/) [![Scalar](https://img.shields.io/badge/Scalar-080808?logo=scalar&logoColor=e7e7e7)](https://scalar.com/) [![Star](https://custom-icon-badges.demolab.com/github/stars/bedstack/elysia-drizzle-realworld-example?logo=star&logoColor=373737&label=Star)](https://github.com/bedstack/elysia-drizzle-realworld-example/stargazers/)
+[![Tests Status](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml/badge.svg?event=push&branch=main&)](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml?query=branch%3Amain+event%3Apush) [![License](https://custom-icon-badges.demolab.com/github/license/bedstack/elysia-drizzle-realworld-example?label=License&color=blue&logo=law&labelColor=0d1117)](https://github.com/bedstack/elysia-drizzle-realworld-example/blob/main/LICENSE) [![ElysiaJS](https://custom-icon-badges.demolab.com/badge/ElysiaJS-0f172b.svg?logo=elysia)](https://elysiajs.com/) [![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?logo=drizzle&logoColor=000)](https://drizzle.team/) [![ArkType](https://custom-icon-badges.demolab.com/badge/ArkType-0d1526?logo=arktype2&logoColor=e9eef9)](https://arktype.io/) [![Scalar](https://img.shields.io/badge/Scalar-080808?logo=scalar&logoColor=e7e7e7)](https://scalar.com/) [![Bun](https://img.shields.io/badge/Bun-14151a?logo=bun&logoColor=fbf0df)](https://bun.com/) [![Biome](https://img.shields.io/badge/Biome-24272f?logo=biome&logoColor=f6f6f9)](https://biomejs.dev/) [![Star](https://custom-icon-badges.demolab.com/github/stars/bedstack/elysia-drizzle-realworld-example?logo=star&logoColor=373737&label=Star)](https://github.com/bedstack/elysia-drizzle-realworld-example/stargazers/)
 
-This codebase was created to demonstrate a fully fledged backend application built with **[Elysia](https://elysiajs.com/)** and **[Drizzle ORM](https://orm.drizzle.team/)** including CRUD operations, authentication, routing, pagination, and more.
+This codebase was created to demonstrate a fully fledged backend application built with **[ElysiaJS](https://elysiajs.com/)** and **[Drizzle ORM](https://orm.drizzle.team/)** including CRUD operations, authentication, routing, pagination, and more.
 
-We've gone to great lengths to adhere to the **Elysia** and **Drizzle** community styleguides & best practices.
+We've gone to great lengths to adhere to the **ElysiaJS** and **Drizzle ORM** community styleguides & best practices.
 
 For more information on how this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
@@ -38,10 +38,10 @@ src/
 
 [Read more about the Bedstack architecture →](https://bedstack.js.org/)
 
-## Tech stack
+## Technologies
 
 - **[Bun](https://bun.sh/)** - JavaScript runtime and package manager
-- **[Elysia](https://elysiajs.com/)** - Web framework for Bun
+- **[ElysiaJS](https://elysiajs.com/)** - Web framework for Bun
 - **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM
 - **[PostgreSQL](https://www.postgresql.org/)** - Database
 - **[ArkType](https://arktype.io/)** - Runtime validation
