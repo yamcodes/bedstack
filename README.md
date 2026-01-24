@@ -40,11 +40,11 @@ src/
 
 ## Technologies
 
-- **[Bun](https://bun.sh/)** - JavaScript runtime and package manager
 - **[ElysiaJS](https://elysiajs.com/)** - Web framework for Bun
-- **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM
-- **[PostgreSQL](https://www.postgresql.org/)** - Database
+- **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM for PostgreSQL
 - **[ArkType](https://arktype.io/)** - Runtime validation
+- **[Scalar](https://scalar.com/)** - API documentation
+- **[Bun](https://bun.sh/)** - JavaScript runtime and package manager
 - **[Biome](https://biomejs.dev/)** - Linting and formatting
 
 # Getting started
