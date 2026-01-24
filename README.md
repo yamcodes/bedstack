@@ -2,7 +2,7 @@
 
 > ### Elysia + Drizzle codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
-### [Docs](https://bedstack.js.org/)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
+### [Demo](https://demo.realworld.show)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
 
 [![Tests Status](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml/badge.svg?event=push&branch=main&)](https://github.com/bedstack/elysia-drizzle-realworld-example/actions/workflows/tests.yml?query=branch%3Amain+event%3Apush) [![License](https://custom-icon-badges.demolab.com/github/license/bedstack/elysia-drizzle-realworld-example?label=License&color=blue&logo=law&labelColor=0d1117)](https://github.com/bedstack/elysia-drizzle-realworld-example/blob/main/LICENSE) [![Bun](https://img.shields.io/badge/Bun-14151a?logo=bun&logoColor=fbf0df)](https://bun.com/) [![ElysiaJS](https://custom-icon-badges.demolab.com/badge/ElysiaJS-0f172b.svg?logo=elysia)](https://elysiajs.com/) [![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?logo=drizzle&logoColor=000)](https://drizzle.team/) [![Biome](https://img.shields.io/badge/Biome-24272f?logo=biome&logoColor=f6f6f9)](https://biomejs.dev/) [![Scalar](https://img.shields.io/badge/Scalar-080808?logo=scalar&logoColor=e7e7e7)](https://scalar.com/) [![Star](https://custom-icon-badges.demolab.com/github/stars/bedstack/elysia-drizzle-realworld-example?logo=star&logoColor=373737&label=Star)](https://github.com/bedstack/elysia-drizzle-realworld-example/stargazers/)
 
@@ -14,11 +14,35 @@ For more information on how this works with other frontends/backends, head over 
 
 # How it works
 
-This is a [Bedstack](https://bedstack.js.org/) implementation - an architecture pattern for building modern TypeScript backends. The stack includes:
+## Architecture
 
-- **[Bun](https://bun.sh/)** - Fast JavaScript runtime and package manager
-- **[Elysia](https://elysiajs.com/)** - Ergonomic web framework for Bun
-- **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM with SQL-like syntax
+This project follows the [Bedstack](https://bedstack.js.org/) architecture - a modular, layered approach to building TypeScript backends:
+
+- **Modular structure** - Each domain (users, articles, comments, etc.) is a self-contained module with its own controller, service, repository, and DTOs
+- **Layered design** - Clear separation between Controller (HTTP handling) → Service (business logic) → Repository (data access)
+- **Type-safe data flow** - DTOs define request/response shapes, mappers transform between layers, schemas define database tables
+
+```
+src/
+├── users/          # User module
+│   ├── users.controller.ts
+│   ├── users.service.ts
+│   ├── users.repository.ts
+│   ├── users.schema.ts
+│   ├── dto/
+│   └── mappers/
+├── articles/       # Article module (same structure)
+├── shared/         # Shared utilities and error handling
+└── app.module.ts   # Root module composing all features
+```
+
+[Read more about the Bedstack architecture →](https://bedstack.js.org/)
+
+## Tech stack
+
+- **[Bun](https://bun.sh/)** - JavaScript runtime and package manager
+- **[Elysia](https://elysiajs.com/)** - Web framework for Bun
+- **[Drizzle ORM](https://orm.drizzle.team/)** - TypeScript ORM
 - **[PostgreSQL](https://www.postgresql.org/)** - Database
 - **[ArkType](https://arktype.io/)** - Runtime validation
 - **[Biome](https://biomejs.dev/)** - Linting and formatting
