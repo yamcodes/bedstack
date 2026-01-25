@@ -1,4 +1,5 @@
 import { openapi } from '@elysiajs/openapi';
+import type { Type } from 'arktype';
 import { DrizzleQueryError } from 'drizzle-orm/errors';
 import { Elysia, NotFoundError, ValidationError } from 'elysia';
 import { pick } from 'radashi';
@@ -76,6 +77,17 @@ export const setupApp = () => {
         },
         swagger: {
           persistAuthorization: true,
+        },
+        /**
+         * Custom mapping from ArkType to JSON Schema for OpenAPI documentation.
+         * Uses ArkType's native toJsonSchema with a fallback to handle
+         * non-serializable constraints gracefully.
+         */
+        mapJsonSchema: {
+          arktype: (type: Type) =>
+            type.toJsonSchema({
+              fallback: (ctx) => ctx.base,
+            }),
         },
       }),
     )
