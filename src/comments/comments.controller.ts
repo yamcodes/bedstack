@@ -70,13 +70,13 @@ export const commentsController = new Elysia().use(setupComments).group(
       )
       .delete(
         '/:id',
-        async ({ params, store, request, set }) => {
+        async ({ params, store, request, status }) => {
           await store.commentsService.deleteComment(
             params.slug,
             params.id,
             await store.authService.getUserIdFromHeader(request.headers),
           );
-          set.status = StatusCodes.NO_CONTENT;
+          return status(StatusCodes.NO_CONTENT, undefined);
         },
         {
           beforeHandle: app.store.authService.requireLogin,
@@ -85,7 +85,7 @@ export const commentsController = new Elysia().use(setupComments).group(
             id: 'string.numeric.parse',
           }),
           response: {
-            [StatusCodes.NO_CONTENT]: type('null'),
+            [StatusCodes.NO_CONTENT]: type('undefined'),
           },
           detail: {
             summary: 'Delete Comment',

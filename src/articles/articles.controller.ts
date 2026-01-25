@@ -164,17 +164,17 @@ export const articlesController = new Elysia().use(setupArticles).group(
       )
       .delete(
         '/:slug',
-        async ({ params, store, request, set }) => {
+        async ({ params, store, request, status }) => {
           await store.articlesService.deleteArticle(
             params.slug,
             await store.authService.getUserIdFromHeader(request.headers),
           );
-          set.status = StatusCodes.NO_CONTENT;
+          return status(StatusCodes.NO_CONTENT, undefined);
         },
         {
           beforeHandle: app.store.authService.requireLogin,
           response: {
-            [StatusCodes.NO_CONTENT]: type('null'),
+            [StatusCodes.NO_CONTENT]: type('undefined'),
           },
           detail: {
             summary: 'Delete Article',
