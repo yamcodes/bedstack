@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@bedstack/elysia-drizzle-realworld-example",
+      "name": "conduit-backend",
       "dependencies": {
         "@elysiajs/bearer": "1.4.2",
         "@elysiajs/jwt": "1.4.0",
