@@ -8,7 +8,7 @@
         "@elysiajs/bearer": "1.4.3",
         "@elysiajs/jwt": "1.4.0",
         "@elysiajs/openapi": "1.4.14",
-        "arkenv": "0.9.2",
+        "arkenv": "0.9.3",
         "arkregex": "0.0.5",
         "arktype": "2.1.29",
         "chalk": "5.6.2",
@@ -147,7 +147,7 @@
 
     "ansi-styles": ["ansi-styles@4.3.0", "", { "dependencies": { "color-convert": "^2.0.1" } }, "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg=="],
 
-    "arkenv": ["arkenv@0.9.2", "", { "peerDependencies": { "arktype": "^2.1.22" }, "optionalPeers": ["arktype"] }, "sha512-7tcnzjlfw3F0NoB0SYZDQkjf5Bu5hWvcsfOUqX7Jg0qb6DQlDyb7USsfX04XPr1MTUsQgGQ4zl80enDc7IhREQ=="],
+    "arkenv": ["arkenv@0.9.3", "", { "peerDependencies": { "arktype": "^2.1.22" }, "optionalPeers": ["arktype"] }, "sha512-DFZy3a1F0ZcaL+A0ugJB8m7IN/uCSDmvCY/kUJK53Oau3EJqf0DizUgSjEYZzv1CR3b3FWXml/sk3mDqWg5+2Q=="],
 
     "arkregex": ["arkregex@0.0.5", "", { "dependencies": { "@ark/util": "0.56.0" } }, "sha512-ncYjBdLlh5/QnVsAA8De16Tc9EqmYM7y/WU9j+236KcyYNUXogpz3sC4ATIZYzzLxwI+0sEOaQLEmLmRleaEXw=="],
 
